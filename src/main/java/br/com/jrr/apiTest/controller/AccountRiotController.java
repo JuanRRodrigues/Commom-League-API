@@ -1,12 +1,16 @@
 package br.com.jrr.apiTest.controller;
 
 import br.com.jrr.apiTest.Repository.AccountRiotRepository;
-import br.com.jrr.apiTest.domain.API.DataMediaRegistrationAPI;
-import br.com.jrr.apiTest.domain.Player.AccountRiotDTO;
+import br.com.jrr.apiTest.domain.API.DataAccountRegistrationAPI;
+import br.com.jrr.apiTest.domain.Account.AccountMatchRiotDTO;
+import br.com.jrr.apiTest.domain.Account.AccountRiotDTO;
+import br.com.jrr.apiTest.domain.Account.DadosUpdateDTO;
+import br.com.jrr.apiTest.domain.Account.DetailAccount;
 import br.com.jrr.apiTest.service.AccountRiotWebService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -28,6 +32,10 @@ private AccountRiotWebService service;
         return service.getAccount();
     }
 
+    @GetMapping("/matches")
+    public List<AccountMatchRiotDTO> getAccountMatches() {
+        return service.getHistoric();
+    }
 
     @GetMapping("/{id}")
     public AccountRiotDTO getById(@PathVariable UUID id){
@@ -35,23 +43,24 @@ private AccountRiotWebService service;
     }
 
     @PostMapping("/post")
-    public AccountRiotDTO postByAPI(@RequestBody @Valid DataMediaRegistrationAPI data, UriComponentsBuilder uriBuilder){
+    public AccountRiotDTO postByAPI(@RequestBody @Valid DataAccountRegistrationAPI data, UriComponentsBuilder uriBuilder){
         return service.registerByAPI(data);
     }
 
-  /*  @PutMapping("/edit/{id}")
- /   public PlayerDTO EditSerie(@RequestBody @Valid MediaEditData data){
-       var movie = movieRepository.getReferenceById(data.id());
-        movie.movieEditData(data);
-       movieRepository.save(movie);
-       return service.getById(data.id());
-    }
-*/
     @DeleteMapping("/delete/{id}")
     @Transactional
     public AccountRiotDTO delete(@PathVariable UUID id){
         Repository.deleteById(id);
         return service.getById(id);
+    }
+
+    @PutMapping
+    @Transactional
+    public DetailAccount atualizar(@RequestBody @Valid DadosUpdateDTO dados){
+        var account =  Repository.getReferenceById(dados.id());
+        account.UpdateAccountDTO(dados);
+
+        return new DetailAccount(account);
     }
 
 

@@ -6,12 +6,12 @@ import jakarta.validation.constraints.NotBlank;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record DataMediaAPI(Long id,
+public record DataAccountAPI(Long id,
 
-                           @NotBlank
+                             @NotBlank
                            @JsonAlias("puuid")String puuid,
-                           @JsonAlias("gameName")String gameName,
-                           @JsonAlias("tagLine")String tagLine
+                             @JsonAlias("gameName")String gameName,
+                             @JsonAlias("tagLine")String tagLine
                        ){
                      //   @JsonAlias("Website")String website){
 
