@@ -22,8 +22,8 @@ public class TokenService {
     private String secret;
     public String generateToken(User user){
         try {
-           var algorithm = Algorithm.HMAC256(secret);
-           String token = JWT.create()
+            var algorithm = Algorithm.HMAC256(secret);
+            String token = JWT.create()
                     .withIssuer("Commom-api")
                     .withSubject(user.getLogin())
                     .withExpiresAt(dateExpiration())

@@ -4,6 +4,7 @@ package br.com.jrr.apiTest.controller;
 import br.com.jrr.apiTest.domain.user.DataAutentication;
 import br.com.jrr.apiTest.domain.user.User;
 import br.com.jrr.apiTest.domain.user.UserRepository;
+import br.com.jrr.apiTest.domain.user.UserRole;
 import br.com.jrr.apiTest.infra.security.DatasTokenJWT;
 import br.com.jrr.apiTest.infra.security.TokenService;
 import jakarta.validation.Valid;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 @RestController
 @RequestMapping("auth")
@@ -46,8 +49,9 @@ public class AutenticationController {
         if(this.repository.findByLogin(data.login()) != null) return ResponseEntity.badRequest().build();
 
         String encyptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        User newUser = new User(data.login(), encyptedPassword, data.role());
+        User newUser = new User(data.login(), encyptedPassword, UserRole.USER , data.telefone(), data.birthDate(), data.cpf(), data.fullName(), 0.0);
 
+        System.out.println(newUser);
         this.repository.save(newUser);
 
         return ResponseEntity.ok().build();
