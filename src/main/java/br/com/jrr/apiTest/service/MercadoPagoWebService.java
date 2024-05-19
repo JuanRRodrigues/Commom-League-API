@@ -37,6 +37,8 @@ public class MercadoPagoWebService {
         try {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI("https://api.mercadopago.com/checkout/preferences"))
+                    .header("Authorization", "Bearer TEST-6807336650098955-050509-4238bc3cf798b172735e058172b6313d-1793899503")
+                    .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(requestBody))
                     .build();
 

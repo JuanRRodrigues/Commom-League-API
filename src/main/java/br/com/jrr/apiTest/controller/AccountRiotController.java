@@ -54,7 +54,7 @@ private AccountRiotWebService service;
         return service.getById(id);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Transactional
     public DetailAccount atualizar(@RequestBody @Valid DadosUpdateDTO dados){
         var account =  Repository.getReferenceById(dados.id());
