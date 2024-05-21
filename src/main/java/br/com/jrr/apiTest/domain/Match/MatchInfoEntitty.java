@@ -3,10 +3,13 @@ package br.com.jrr.apiTest.domain.Match;
 import br.com.jrr.apiTest.domain.API.DataMatchAPI;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+
+import java.util.List;
 
 
 @Entity
@@ -48,9 +51,12 @@ public class MatchInfoEntitty {
     @JsonAlias("gameDuration")
     private String gameDuration;
 
-
     @JsonAlias("gameEndTimestamp")
     private String getGameEndTimesstamp;
+
+    //@OneToMany(mappedBy = "matchInfoEntity", cascade = CascadeType.ALL)
+  //  private List<ParticipantsMatch> participants;
+
 
     public MatchInfoEntitty(DataMatchAPI dataMatchAPI) {
     }

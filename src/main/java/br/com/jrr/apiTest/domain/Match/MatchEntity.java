@@ -2,6 +2,7 @@ package br.com.jrr.apiTest.domain.Match;
 
 
 import br.com.jrr.apiTest.domain.API.DataMatchAPI;
+import br.com.jrr.apiTest.domain.Torneio.torneio;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -24,6 +25,10 @@ public class MatchEntity {
 
     @OneToOne(cascade = CascadeType.ALL)
     private MetadadoEntity metadado;
+
+    @ManyToOne
+    @JoinColumn(name = "tournament_id")
+    private torneio tournament;
 
     public MatchEntity(DataMatchAPI dataMatchAPI) {
         if (dataMatchAPI != null) {

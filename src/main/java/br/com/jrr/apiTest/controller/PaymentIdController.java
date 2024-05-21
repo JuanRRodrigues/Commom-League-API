@@ -1,8 +1,8 @@
 package br.com.jrr.apiTest.controller;
 
-import br.com.jrr.apiTest.Repository.MatchLolRiotRepository;
+import br.com.jrr.apiTest.domain.Match.Repository.MatchLolRiotRepository;
 import br.com.jrr.apiTest.domain.API.DataAccountPaymentAPI;
-import br.com.jrr.apiTest.service.MercadoPagoWebService;
+import br.com.jrr.apiTest.service.MercadoPago.MercadoPagoWebService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

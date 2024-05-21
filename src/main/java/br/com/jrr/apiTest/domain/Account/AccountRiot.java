@@ -2,24 +2,23 @@ package br.com.jrr.apiTest.domain.Account;
 
 
 import br.com.jrr.apiTest.domain.API.DataAccountAPI;
+import br.com.jrr.apiTest.domain.DTO.DadosUpdateDTO;
+import br.com.jrr.apiTest.domain.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 import java.util.List;
-import java.util.UUID;
 
-@Entity
+@Entity(name = "accountRiot")
 @Getter
-@Table(name = "accountRiot")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@DiscriminatorColumn(name = "type_entity", discriminatorType = DiscriminatorType.STRING)
+@Table(name = "accounstRiot")
 
 public class AccountRiot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
 
     @NotNull
     private String puuid;
@@ -32,6 +31,10 @@ public class AccountRiot {
 
     @ElementCollection
     private List<String> idMatchList;
+
+    @OneToOne
+    @JoinColumn(name = "account_riot_id")
+    private User user;
 
 
 
@@ -62,6 +65,11 @@ public class AccountRiot {
             this.tagLine = dados.tagLine();
         }
 
+    }
+
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

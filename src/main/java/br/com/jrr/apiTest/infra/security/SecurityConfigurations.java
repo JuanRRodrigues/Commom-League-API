@@ -36,7 +36,7 @@ public class SecurityConfigurations implements WebMvcConfigurer {
         configuration.setAllowedOrigins(Arrays.asList("*"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
-        configuration.setExposedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
+        configuration.setExposedHeaders(Arrays.asList("Content-Type", "Authorization", "X-Amz-Date", "X-Api-Key", "X-Amz-Security-Token"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
@@ -50,7 +50,8 @@ public class SecurityConfigurations implements WebMvcConfigurer {
                 .authorizeHttpRequests(req -> {
                     req.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
                     req.requestMatchers(HttpMethod.POST, "/auth/register").permitAll();
-                    req.requestMatchers(HttpMethod.POST, "/api/v1/ApiKeyRiot/post").hasRole("ADMIN");
+                    req.requestMatchers(HttpMethod.POST, "/api/v1/teams/list").permitAll();
+            //        req.requestMatchers(HttpMethod.POST, "/api/v1/ApiKeyRiot/post").hasRole("ADMIN");
                     req.anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

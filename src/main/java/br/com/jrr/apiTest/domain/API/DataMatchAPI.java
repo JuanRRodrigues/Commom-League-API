@@ -2,6 +2,7 @@ package br.com.jrr.apiTest.domain.API;
 
 import br.com.jrr.apiTest.domain.Match.MatchInfoEntitty;
 import br.com.jrr.apiTest.domain.Match.MetadadoEntity;
+import br.com.jrr.apiTest.domain.Match.ParticipantsMatch;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -17,6 +18,7 @@ public class DataMatchAPI
      @JsonProperty("info")
      private MatchInfoEntitty info;
 
+
      public MetadadoEntity getMetadado() {
          return metadado;
      }
@@ -24,6 +26,8 @@ public class DataMatchAPI
      public MatchInfoEntitty getInfo() {
          return info;
      }
+
+
 
      @Override
      public String toString() {

@@ -1,8 +1,8 @@
 package br.com.jrr.apiTest.controller;
 
-import br.com.jrr.apiTest.Repository.MatchLolRiotRepository;
+import br.com.jrr.apiTest.domain.Match.Repository.MatchLolRiotRepository;
 import br.com.jrr.apiTest.domain.API.MatchRegistrationAPI;
-import br.com.jrr.apiTest.service.MatchIdRiotWebService;
+import br.com.jrr.apiTest.domain.Match.MatchIdRiotWebService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
