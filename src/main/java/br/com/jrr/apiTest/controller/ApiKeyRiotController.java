@@ -1,7 +1,7 @@
 package br.com.jrr.apiTest.controller;
 
 import br.com.jrr.apiTest.domain.Account.AccountRiotRepository;
-import br.com.jrr.apiTest.configsAPI.ApiKeyManager;
+import br.com.jrr.apiTest.infra.configsAPI.ApiKeyManager;
 import br.com.jrr.apiTest.domain.API.KeyRiotRegistrationAPI;
 import br.com.jrr.apiTest.domain.Account.AccountRiotWebService;
 import jakarta.validation.Valid;

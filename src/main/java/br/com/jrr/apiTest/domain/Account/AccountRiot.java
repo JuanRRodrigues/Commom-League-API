@@ -6,13 +6,17 @@ import br.com.jrr.apiTest.domain.DTO.DadosUpdateDTO;
 import br.com.jrr.apiTest.domain.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.List;
 
-@Entity(name = "accountRiot")
+@Table(name= "accounst_riot")
+@Entity(name = "accountRiots")
 @Getter
-@Table(name = "accounstRiot")
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 
 public class AccountRiot {
 
@@ -32,17 +36,38 @@ public class AccountRiot {
     @ElementCollection
     private List<String> idMatchList;
 
+    @NotNull
+    private String accountId;
+
+    @NotNull
+    private String idRiot;
+
+    @NotNull
+    private String profileIconId;
+
+    @NotNull
+    private String revisionDate;
+
+    @NotNull
+    private String summonerLevel;
+
     @OneToOne
-    @JoinColumn(name = "account_riot_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
-
-
-    public AccountRiot(DataAccountAPI dataMediaAPI) {
-        this.puuid = dataMediaAPI.puuid();
-        this.gameName = dataMediaAPI.gameName();
-        this.tagLine = dataMediaAPI.tagLine();
+    public AccountRiot(DataAccountAPI data1, DataAccountAPI data2) {
+        this.puuid = data1.puuid();
+        this.gameName = data1.gameName();
+        this.tagLine = data1.tagLine();
+        this.accountId = data2.accountId();
+        this.idRiot = data2.idRiot();
+        this.profileIconId = data2.profileIconId();
+        this.revisionDate = data2.revisionDate();
+        this.summonerLevel = data2.summonerLevel();
     }
+
+
+
 
 
     public void addIdMatches(List<String> idMatches) {

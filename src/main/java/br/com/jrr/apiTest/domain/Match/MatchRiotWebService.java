@@ -3,7 +3,7 @@ package br.com.jrr.apiTest.domain.Match;
 
 
 import br.com.jrr.apiTest.domain.Match.Repository.MatchLolRiotRepository;
-import br.com.jrr.apiTest.configsAPI.ApiKeyManager;
+import br.com.jrr.apiTest.infra.configsAPI.ApiKeyManager;
 import br.com.jrr.apiTest.domain.API.DataMatchAPI;
 import br.com.jrr.apiTest.domain.DTO.MatchDTO;
 import br.com.jrr.apiTest.domain.API.MatchRegistrationAPI;

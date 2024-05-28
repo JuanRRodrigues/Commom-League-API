@@ -1,7 +1,9 @@
 package br.com.jrr.apiTest.controller;
 
 
+import br.com.jrr.apiTest.domain.DTO.AccountRiotDTO;
 import br.com.jrr.apiTest.domain.user.User;
+import br.com.jrr.apiTest.domain.user.UserDTO;
 import br.com.jrr.apiTest.domain.user.UserRepository;
 import br.com.jrr.apiTest.domain.user.UserRole;
 import br.com.jrr.apiTest.infra.security.TokenService;
@@ -58,4 +60,10 @@ public class AutenticationController {
 
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/{login}")
+    public UserDTO getByLogin(@PathVariable String login){
+        return teamService.getByLogin(login);
+    }
+
 }

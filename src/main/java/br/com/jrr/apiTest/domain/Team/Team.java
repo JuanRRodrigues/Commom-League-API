@@ -1,6 +1,7 @@
 package br.com.jrr.apiTest.domain.Team;
 
 
+import br.com.jrr.apiTest.domain.Match.MatchEntity;
 import br.com.jrr.apiTest.domain.Torneio.torneio;
 import br.com.jrr.apiTest.domain.user.User;
 import jakarta.persistence.*;
@@ -42,10 +43,14 @@ public class Team {
 
     private boolean inGame;
 
+    @OneToOne
+    @JoinColumn(name = "leader_id")
+    private User leader;
+
     @ManyToMany(mappedBy = "teams")
     private final List<torneio> tournaments = new ArrayList<>();
 
-    public Team(String name, String logo, String game, Double saldo, int wins, int loses, boolean inGame) {
+    public Team(String name, String logo, String game, double saldo, int wins, int loses, boolean inGame, User leader, List<User> players) {
         this.name = name;
         this.logo = logo;
         this.game = game;
@@ -53,22 +58,38 @@ public class Team {
         this.wins = wins;
         this.loses = loses;
         this.inGame = inGame;
+        this.leader = leader;
+        this.players = new ArrayList<>();
+        if (players != null) {
+            this.players.addAll(players);
+        }
     }
+
 
     public Team() {
     }
 
 
     public void addPlayer(User player) {
+        if (this.players == null) {
+            this.players = new ArrayList<>();
+        }
         this.players.add(player);
     }
 
-
-
-
     public void setPlayers(List<User> players) {
-        this.players = players;
+        this.players = new ArrayList<>();
+        if (players != null) {
+            this.players.addAll(players);
+        }
     }
+
+    public void addLeader(User leader) {
+        this.leader = leader;
+    }
+
+
+
 
     @Override
     public String toString() {

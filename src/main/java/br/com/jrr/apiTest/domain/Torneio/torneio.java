@@ -27,6 +27,8 @@ public class torneio {
 
     private boolean inTorneio;
 
+    private Double prize;
+
     @ManyToMany
     @JoinTable(
             name = "tournament_teams",
@@ -38,12 +40,13 @@ public class torneio {
 
     @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MatchEntity> partidas;
-    public torneio(String nome, String ranking, boolean inTorneio, List<Team> teams, List<MatchEntity> partidas) {
+    public torneio(String nome, String ranking, boolean inTorneio, List<Team> teams, List<MatchEntity> partidas, double prize) {
         this.nome = nome;
         Ranking = ranking;
         this.inTorneio = inTorneio;
         this.teams = teams;
         this.partidas = partidas;
+        this.prize = prize;
     }
 
     public torneio() {

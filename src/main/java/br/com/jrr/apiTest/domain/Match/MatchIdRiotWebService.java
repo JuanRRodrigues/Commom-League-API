@@ -6,7 +6,7 @@ import br.com.jrr.apiTest.domain.Account.AccountRiot;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import br.com.jrr.apiTest.domain.Match.Repository.MatchInfoLolRiotRepository;
-import br.com.jrr.apiTest.configsAPI.ApiKeyManager;
+import br.com.jrr.apiTest.infra.configsAPI.ApiKeyManager;
 import br.com.jrr.apiTest.domain.API.MatchRegistrationAPI;
 import br.com.jrr.apiTest.service.APIConfigService.ConvertData;
 import br.com.jrr.apiTest.service.APIConfigService.GetData;

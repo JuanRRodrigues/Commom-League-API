@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-@Table(name= "users2")
+@Table(name= "users")
 @Entity(name = "User")
 @Getter
 @NoArgsConstructor
@@ -53,9 +53,11 @@ public class User implements UserDetails {
     @JoinColumn(name = "team_id")
     private Team team;
 
-    @OneToOne
-    @JoinColumn(name = "account_riot_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Fk_AccountRiot")
     private AccountRiot accountRiot;
+
+
 
 
     @Override
@@ -106,6 +108,7 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 
 
     public void setTeam(Team team) {

@@ -1,13 +1,13 @@
 package br.com.jrr.apiTest.domain.Team;
 
-import br.com.jrr.apiTest.domain.Team.TeamRepository;
 import br.com.jrr.apiTest.controller.TeamAndPlayerDTO;
-import br.com.jrr.apiTest.controller.UserDTO;
-import br.com.jrr.apiTest.domain.Team.Team;
-import br.com.jrr.apiTest.domain.DTO.TeamDTO;
+import br.com.jrr.apiTest.domain.DTO.AccountRiotDTO;
+import br.com.jrr.apiTest.domain.user.LeaderDTO;
+import br.com.jrr.apiTest.domain.user.UserDTO;
 import br.com.jrr.apiTest.domain.user.User;
 import br.com.jrr.apiTest.domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,25 +26,122 @@ public class TeamService {
     private UserRepository userRepository;
 
 
-    public List<TeamDTO> getAccount() {
+
+    private LeaderDTO mapUserToLeaderDTO(Team team) {
+        if (team != null) {
+            User leader = team.getLeader();
+            if (leader != null) {
+                return new LeaderDTO(
+                        leader.getId(),
+                        leader.getFullName(),
+                        leader.getLogin()
+                );
+            } else {
+                // Tratar o caso em que o líder da equipe é nulo
+                return null;
+            }
+        } else {
+            // Tratar o caso em que o time é nulo
+            return null;
+        }
+    }
+
+    public List<TeamDTO> getTeams() {
         return Repository.findAll()
                 .stream()
-                .map(s -> new TeamDTO(s.getId(), s.getName(), s.getLogo(), s.getGame(), s.getSaldo(), s.getWins(), s.getLoses(), s.isInGame()))
+                .map(team -> {
+                    User leader = team.getLeader();
+                    return new TeamDTO(
+                            team.getId(),
+                            team.getName(),
+                            team.getLogo(),
+                            team.getGame(),
+                            team.getSaldo(),
+                            team.getWins(),
+                            team.getLoses(),
+                            team.isInGame(),
+                            mapUsersToUserDTOs(team.getPlayers()),
+                            leader != null ? mapUserToLeaderDTO(leader.getTeam()) : null
+                    );
+                })
                 .collect(Collectors.toList());
     }
+
+
+    private List<UserDTO> mapUsersToUserDTOs(List<User> users) {
+        return users.stream()
+                .map(UserDTO::fromUser)
+                .collect(Collectors.toList());
+    }
+
+
 
     public List<UserDTO> getUser() {
         return userRepository.findAll()
                 .stream()
-                .map(s -> new UserDTO(s.getId(), s.getLogin(), s.getPassword(), s.getFullName(), s.getCpf(), s.getTelefone(), s.getRole(), s.getSaldo(), s.getBirthDate(), s.getTeam(), s.getAccountRiot()))
+                .map(s -> new UserDTO(
+                                s.getId(),
+                                s.getLogin(),
+                                s.getPassword(),
+                                s.getFullName(),
+                                s.getCpf(),
+                                s.getTelefone(),
+                                s.getRole(),
+                                s.getSaldo(),
+                                s.getBirthDate(),
+                            AccountRiotDTO.fromAccountRiot(s.getAccountRiot())
+                        )
+                )
                 .collect(Collectors.toList());
     }
 
+
+
     public TeamDTO getById(String id) {
-        Optional<Team> optionalPlayer = Repository.findById(id);
-        return optionalPlayer.map(s -> new TeamDTO(s.getId(), s.getName(), s.getLogo(), s.getGame(), s.getSaldo(), s.getWins(), s.getLoses(), s.isInGame()))
-                .orElse(null);
+        Optional<Team> optionalTeam = Repository.findById(id);
+        return optionalTeam.map(team -> new TeamDTO(
+                        team.getId(),
+                        team.getName(),
+                        team.getLogo(),
+                        team.getGame(),
+                        team.getSaldo(),
+                        team.getWins(),
+                        team.getLoses(),
+                        team.isInGame(),
+                        mapUsersToUserDTOs(team.getPlayers()),
+                        mapUserToLeaderDTO(team.getLeader().getTeam())
+                ))
+                .orElse(null); // Se não encontrar o time com o ID fornecido, retorna null
     }
+
+
+
+
+    public UserDTO getByLogin(String login) {
+        UserDetails userDetails = userRepository.findByLogin(login);
+        if (userDetails != null) {
+            User user = (User) userDetails; // Convertendo UserDetails para User
+            return new UserDTO(
+                    user.getId(),
+                    user.getLogin(),
+                    user.getPassword(),
+                    user.getFullName(),
+                    user.getCpf(),
+                    user.getTelefone(),
+                    user.getRole(),
+                    user.getSaldo(),
+                    user.getBirthDate(),
+                    AccountRiotDTO.fromAccountRiot(user.getAccountRiot())
+            );
+        } else {
+            return null; // ou lançar uma exceção, caso preferir
+        }
+    }
+
+
+
+
+
 
 
     public TeamDTO addPlayer(TeamAndPlayerDTO data) {
