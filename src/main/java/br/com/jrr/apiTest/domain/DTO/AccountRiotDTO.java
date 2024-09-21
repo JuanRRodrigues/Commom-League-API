@@ -1,5 +1,6 @@
 package br.com.jrr.apiTest.domain.DTO;
 
+
 import br.com.jrr.apiTest.domain.Account.AccountRiot;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;

@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+
 import java.util.List;
 
 @Table(name= "accounst_riot")
@@ -106,5 +107,86 @@ public class AccountRiot {
                 ", tagLine='" + tagLine + '\'' +
                 ", idMatchList=" + idMatchList +
                 '}';
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public @NotNull String getPuuid() {
+        return puuid;
+    }
+
+    public void setPuuid(@NotNull String puuid) {
+        this.puuid = puuid;
+    }
+
+    public @NotNull String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(@NotNull String gameName) {
+        this.gameName = gameName;
+    }
+
+    public @NotNull String getTagLine() {
+        return tagLine;
+    }
+
+    public void setTagLine(@NotNull String tagLine) {
+        this.tagLine = tagLine;
+    }
+
+    public @NotNull String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(@NotNull String accountId) {
+        this.accountId = accountId;
+    }
+
+    public List<String> getIdMatchList() {
+        return idMatchList;
+    }
+
+    public @NotNull String getIdRiot() {
+        return idRiot;
+    }
+
+    public void setIdRiot(@NotNull String idRiot) {
+        this.idRiot = idRiot;
+    }
+
+    public @NotNull String getProfileIconId() {
+        return profileIconId;
+    }
+
+    public void setProfileIconId(@NotNull String profileIconId) {
+        this.profileIconId = profileIconId;
+    }
+
+    public @NotNull String getRevisionDate() {
+        return revisionDate;
+    }
+
+    public void setRevisionDate(@NotNull String revisionDate) {
+        this.revisionDate = revisionDate;
+    }
+
+    public @NotNull String getSummonerLevel() {
+        return summonerLevel;
+    }
+
+    public void setSummonerLevel(@NotNull String summonerLevel) {
+        this.summonerLevel = summonerLevel;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

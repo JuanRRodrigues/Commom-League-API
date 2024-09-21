@@ -25,7 +25,7 @@ public class TokenService {
             var algorithm = Algorithm.HMAC256(secret);
             String token = JWT.create()
                     .withIssuer("Commom-api")
-                    .withSubject(user.getLogin())
+                    .withSubject(user.login)
                     .withExpiresAt(dateExpiration())
                     .sign(algorithm);
             return token;
