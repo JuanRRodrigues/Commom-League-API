@@ -1,12 +1,18 @@
 package br.com.jrr.apiTest.domain.Team;
 
 import br.com.jrr.apiTest.controller.TeamAndPlayerDTO;
-import br.com.jrr.apiTest.domain.DTO.AccountRiotDTO;
-import br.com.jrr.apiTest.domain.user.LeaderDTO;
-import br.com.jrr.apiTest.domain.user.UserDTO;
-import br.com.jrr.apiTest.domain.user.User;
-import br.com.jrr.apiTest.domain.user.UserRepository;
+import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO.AccountRiotDTO;
+import br.com.jrr.apiTest.domain.user.DTO.UserGeneralEditDTO;
+import br.com.jrr.apiTest.domain.user.DTO.LeaderDTO;
+import br.com.jrr.apiTest.domain.user.DTO.UserDTO;
+import br.com.jrr.apiTest.domain.user.DTO.UserLanguageEditDTO;
+import br.com.jrr.apiTest.domain.user.Entity.User;
+import br.com.jrr.apiTest.domain.user.repository.UserRepository;
+import br.com.jrr.apiTest.exception.AuthenticationException;
+import br.com.jrr.apiTest.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +31,6 @@ public class TeamService {
     @Autowired
     private UserRepository userRepository;
 
-
-
     private LeaderDTO mapUserToLeaderDTO(Team team) {
         if (team != null) {
             User leader = team.getLeader();
@@ -37,11 +41,9 @@ public class TeamService {
                         leader.getLogin()
                 );
             } else {
-                // Tratar o caso em que o líder da equipe é nulo
                 return null;
             }
         } else {
-            // Tratar o caso em que o time é nulo
             return null;
         }
     }
@@ -82,6 +84,7 @@ public class TeamService {
                 .map(s -> new UserDTO(
                                 s.getId(),
                                 s.getLogin(),
+                                s.getUsername(),
                                 s.getPassword(),
                                 s.getFullName(),
                                 s.getCpf(),
@@ -89,6 +92,12 @@ public class TeamService {
                                 s.getRole(),
                                 s.getSaldo(),
                                 s.getBirthDate(),
+                                s.getImage(),
+                                s.getCity(),
+                                s.getCountry(),
+                                s.getState(),
+                            s.getLeagueRegion(),
+                            s.getLanguage(),
                             AccountRiotDTO.fromAccountRiot(s.getAccountRiot())
                         )
                 )
@@ -111,7 +120,7 @@ public class TeamService {
                         mapUsersToUserDTOs(team.getPlayers()),
                         mapUserToLeaderDTO(team.getLeader().getTeam())
                 ))
-                .orElse(null); // Se não encontrar o time com o ID fornecido, retorna null
+                .orElse(null); //
     }
 
 
@@ -120,10 +129,11 @@ public class TeamService {
     public UserDTO getByLogin(String login) {
         UserDetails userDetails = userRepository.findByLogin(login);
         if (userDetails != null) {
-            User user = (User) userDetails; // Convertendo UserDetails para User
+            User user = (User) userDetails;
             return new UserDTO(
                     user.getId(),
                     user.getLogin(),
+                    user.getUsername(),
                     user.getPassword(),
                     user.getFullName(),
                     user.getCpf(),
@@ -131,17 +141,119 @@ public class TeamService {
                     user.getRole(),
                     user.getSaldo(),
                     user.getBirthDate(),
+                    user.getImage(),
+                    user.getCity(),
+                    user.getCountry(),
+                    user.getState(),
+                    user.getLeagueRegion(),
+                    user.getLanguage(),
                     AccountRiotDTO.fromAccountRiot(user.getAccountRiot())
             );
         } else {
-            return null; // ou lançar uma exceção, caso preferir
+            return null;
+        }
+    }
+
+    public UserDTO getByIdUser(String id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            return new UserDTO(
+                    user.getId(),
+                    user.getLogin(),
+                    user.getUsername(),
+                    user.getPassword(),
+                    user.getFullName(),
+                    user.getCpf(),
+                    user.getTelefone(),
+                    user.getRole(),
+                    user.getSaldo(),
+                    user.getBirthDate(),
+                    user.getImage(),
+                    user.getCity(),
+                    user.getCountry(),
+                    user.getCity(),
+                    user.getLeagueRegion(),
+                    user.getLanguage(),
+                    AccountRiotDTO.fromAccountRiot(user.getAccountRiot())
+            );
+        } else {
+            return null;
         }
     }
 
 
 
 
+    public UserDTO getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
+        if (authentication != null && authentication.isAuthenticated()) {
+            User user = (User) authentication.getPrincipal();
+            return UserDTO.fromUser(user);
+        }
+
+        return null; // ou lançar uma exceção específica, se preferir
+    }
+
+    public String getAuth(UserGeneralEditDTO userDto) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new AuthenticationException("User not authenticated");
+        }
+
+        User existingUser = (User) authentication.getPrincipal();
+        if (existingUser == null) {
+            throw new UserNotFoundException("User not found");
+        }
+
+        if (userDto.userName() != null) {
+            existingUser.setUserName(userDto.userName());
+        }
+        if (userDto.fullName() != null) {
+            existingUser.setFullName(userDto.fullName());
+        }
+        if (userDto.country() != null) {
+            existingUser.setCountry(userDto.country());
+        }
+        if (userDto.state() != null) {
+            existingUser.setState(userDto.state());
+        }
+        if (userDto.city() != null) {
+            existingUser.setCity(userDto.city());
+        }
+
+        userRepository.save(existingUser);
+
+        return "User data updated successfully.";
+
+    }
+
+    public String editLanguage(UserLanguageEditDTO userDto) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new AuthenticationException("User not authenticated");
+        }
+
+        User existingUser = (User) authentication.getPrincipal();
+        if (existingUser == null) {
+            throw new UserNotFoundException("User not found");
+        }
+
+        if (userDto.language() != null) {
+            existingUser.setLanguage(userDto.language());
+        }
+        if (userDto.leagueRegion() != null) {
+            existingUser.setLeagueRegion(userDto.leagueRegion());
+        }
+
+        userRepository.save(existingUser);
+
+        return "User data updated successfully.";
+
+    }
 
 
     public TeamDTO addPlayer(TeamAndPlayerDTO data) {
@@ -160,5 +272,18 @@ public class TeamService {
         } else {
             return null; // Time ou usuário não encontrados
         }
+    }
+
+    public User updateUser(String id, UserGeneralEditDTO userDto) {
+        User existingUser = userRepository.findById(id).orElse(null);
+        if (existingUser != null) {
+            existingUser.setUserName(userDto.userName());
+            existingUser.setFullName(userDto.fullName());
+            existingUser.setCountry(userDto.country());
+            existingUser.setState(userDto.state());
+            existingUser.setCity(userDto.city());
+            return userRepository.save(existingUser);
+        }
+        return null;
     }
 }

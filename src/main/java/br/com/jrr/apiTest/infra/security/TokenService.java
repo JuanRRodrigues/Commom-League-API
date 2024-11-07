@@ -1,6 +1,6 @@
 package br.com.jrr.apiTest.infra.security;
 
-import br.com.jrr.apiTest.domain.user.User;
+import br.com.jrr.apiTest.domain.user.Entity.User;
 import com.auth0.jwt.JWT;
 
 import com.auth0.jwt.algorithms.Algorithm;

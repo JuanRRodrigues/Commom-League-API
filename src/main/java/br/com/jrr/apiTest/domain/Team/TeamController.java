@@ -1,8 +1,8 @@
 package br.com.jrr.apiTest.domain.Team;
 
 import br.com.jrr.apiTest.controller.TeamAndPlayerDTO;
-import br.com.jrr.apiTest.domain.user.User;
-import br.com.jrr.apiTest.domain.user.UserRepository;
+import br.com.jrr.apiTest.domain.user.Entity.User;
+import br.com.jrr.apiTest.domain.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +26,7 @@ private TeamService service;
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/list")
+    @GetMapping("/")
     public List<TeamDTO> getAccount() {
         return service.getTeams();
     }

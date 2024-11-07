@@ -5,91 +5,175 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21de2451-b762-4a78-84b4-c00140de6bf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/CommomLeagueApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AutenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AuthenticationDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/LoginResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/MatchIdController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/PaymentIdController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/RegisterDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/TeamAndPlayerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataAccountPaymentAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataMatchAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataMatchRegistrationAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/IdMatchAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/KeyRiotRegistrationAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/MatchRegistrationAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Account/AccountRiotController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Account/AccountRiotWebService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/AccountMatchRiotDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/DadosUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/DetailAccountDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/MatchDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/MatchIdDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Challenges.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/IdMatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchIdEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchIdRiotWebService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchInfoEntitty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchRiotWebService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MetadadoEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/ParticipantsMatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/MatchIdLolRiotRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/MatchInfoLolRiotRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/MatchLolRiotRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/MatchMedadooLolRiotRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/ParticipantMatchRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/Team.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamJoinDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamRegistreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/TorneioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/torneio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/UserMercadoPago/PaymentDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/ValidacaoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/AuthenticationUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DataAutentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/LeaderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/configsAPI/ApiKeyManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/exceptions/TreatError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/DatasTokenJWT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/SecurityConfigurations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/SecurityFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/TokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/service/MercadoPago/MercadoPagoWebService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/novoweb.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountMatchRiotDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/DetailAccountDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/InfoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/MatchDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/MetadadoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/ParticipantDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Info/Info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Match.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Participant/Participant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Participant/ParticipantRepository/ParticipantRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Participant/ParticipantsMatchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Participant/ParticipantsMatchService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/file/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/file/FileRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/file/model/File.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/file/model/FileMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/file/model/FileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/file/model/FileUploadRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/file/model/FileUploadResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/DadosUpdateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/MatchIdDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/UserLanguageEditDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/Champion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/ChampionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/DTO/CityDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/Language.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/LeagueRank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/LeagueRegion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/LeagueRoute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/SummonerSpell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/TeamTier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/adress/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/adress/Country.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/adress/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/controllers/CityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/exception/AuthenticationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/your_database_name_here.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/Repository/AccountRiotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Account/AccountRiotRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/StreamWebApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/configs/CorsConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/configs/loldataDataSourceConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/configs/novowebDataSourceConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AccountRiot2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/ApiKeyRiotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AccountRiotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/MatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/CombineController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataMediaAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataAccountAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataMediaRegistrationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataAccountRegistrationAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Player/AccountRiot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Account/AccountRiot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Player/AccountRiot2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Player/AccountRiotDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/AccountRiotDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Player/MediaEditData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Player/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/repo2/AccountRiot2Repository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/service/AccountRiotWebService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/service/GptWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/service/ChatIA/GptWebService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/ApiKeyRiotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/ApiKeyRiotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AutenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AutenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/MatchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/MatchIdController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/PaymentIdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/PaymentIdController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/RegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/RegisterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataAccountAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataAccountRegistrationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountRegistrationAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataMatchAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/API/DataMatchAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/DataMatchRegistrationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/API/DataMatchRegistrationAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/IdMatchAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/API/IdMatchAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/API/MatchRegistrationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/API/MatchRegistrationAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Account/AccountRiot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Account/AccountRiotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Account/AccountRiotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Account/AccountRiotWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/AccountMatchRiotDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/AccountMatchRiotDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/AccountRiotDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/UserGeneralEditDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/DadosUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/DadosUpdateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/DetailAccountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/DetailAccountDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/MatchDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/MatchDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/DTO/MatchIdDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/MatchIdDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Challenges.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/MatchAPI/Challenges.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/IdMatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Historic/IdMatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchIdEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Historic/Historic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchIdRiotWebService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchInfoEntitty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MatchRiotWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/MatchRiotWebService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/MetadadoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Metadado/Metadado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/ParticipantsMatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/MatchIdLolRiotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Historic/Repository/MatchIdLolRiotRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/MatchInfoLolRiotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Info/infoRepository/InfoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/MatchLolRiotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Repository/MatchLolRiotRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/MatchMedadooLolRiotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Metadado/Repository/MetadadoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Match/Repository/ParticipantMatchRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamRegistreDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamRegistreDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/TorneioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/TorneioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/torneio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/Torneio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/AuthenticationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Entity/AuthenticationUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DataAutentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/DataAutentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/LeaderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/LeaderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/enums/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/configsAPI/ApiKeyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/configsAPI/ApiKeyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/SecurityConfigurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/SecurityConfigurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/SecurityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/service/APIConfigService/ConvertData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/service/APIConfigService/ConvertData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/service/APIConfigService/GetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/service/APIConfigService/GetData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/jrr/apiTest/AnimewebApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/jrr/apiTest/MovieControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/jrr/apiTest/SerieControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CommomLeaguePOC-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CommomLeaguePOC-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CommomLeaguePOC-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CommomLeaguePOC-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/ApiKeyRiotController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/ApiKeyRiotController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/AutenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/AutenticationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/MatchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/MatchIdController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/PaymentIdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/PaymentIdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/RegisterDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/RegisterDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/API/DataAccountAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/API/DataAccountRegistrationAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/API/DataMatchAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/API/DataMatchRegistrationAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/API/IdMatchAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/API/MatchRegistrationAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Account/AccountRiot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Account/AccountRiotController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Account/AccountRiotRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Account/AccountRiotWebService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/DTO/AccountMatchRiotDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/DTO/AccountRiotDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/DTO/DadosUpdateDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/DTO/DetailAccountDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/DTO/MatchDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/DTO/MatchIdDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/Challenges.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/IdMatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/MatchEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/MatchIdEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/MatchIdRiotWebService$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/MatchIdRiotWebService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/MatchInfoEntitty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/MatchRiotWebService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/MetadadoEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/ParticipantsMatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/Repository/MatchIdLolRiotRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/Repository/MatchInfoLolRiotRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/Repository/MatchLolRiotRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/Repository/MatchMedadooLolRiotRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Match/Repository/ParticipantMatchRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/Team.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamRegistreDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamRegistreDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/TorneioRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/TorneioRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/torneio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/torneio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/AuthenticationUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/DataAutentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/LeaderDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/UserDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/configsAPI/ApiKeyManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/configsAPI/ApiKeyManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/security/SecurityConfigurations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/security/SecurityConfigurations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/security/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/security/SecurityFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/security/TokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/security/TokenService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/service/APIConfigService/ConvertData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/service/APIConfigService/ConvertData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,11 +186,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
-        <option value="Enum" />
         <option value="CSS File" />
+        <option value="Interface" />
         <option value="Record" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -143,51 +227,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.CommomLeagueApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JUnit.java in animeweb.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/JuanR/OneDrive/Documentos/GitHub/Project-Stream-BackEnd/src/test/java",
-    "last_opened_file_path": "C:/Users/JuanR/OneDrive/Área de Trabalho/Pi-Test",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.CommomLeagueApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JUnit.java in animeweb.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CommomLeaguePOC [org.apache.maven.plugins:maven-deploy-plugin:3.1.1:deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CommomLeaguePOC [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/JuanR/OneDrive/Documentos/GitHub/Project-Stream-BackEnd/src/test/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/JuanR/OneDrive/Imagens/Commom-League-API/src/main/java/br/com/jrr/apiTest/domain/user&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.com.jrr.apiTest.domain.Notification" />
       <recent name="br.com.jrr.apiTest.controller" />
       <recent name="br.com.jrr.apiTest.domain.Account" />
       <recent name="br.com.jrr.animeweb.domain.anime" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\JuanR\OneDrive\Imagens\Commom-League-API\src\main\java\br\com\jrr\apiTest\domain\user" />
       <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\Pi-Test\src\main\resources" />
       <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\Pi-Test\src\main\java\br\com\jrr\apiTest\controller" />
       <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\Pi-Test\src\main\java\br\com\jrr\apiTest\domain" />
       <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\Pi-Test\src\main\java\br\com\jrr\apiTest" />
-      <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\Pi-Test\src\main\java\br\com\jrr\apiTest\configs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\Pi-Test\src\main\java\br\com\jrr\apiTest\configs" />
@@ -196,11 +283,11 @@
       <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\s\anime-web\src\main\resources\templates\users" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.jrr.apiTest.domain.DTO" />
+      <recent name="br.com.jrr.apiTest.domain.file.model" />
+      <recent name="br.com.jrr.apiTest.domain.user.DTO" />
       <recent name="br.com.jrr.apiTest.domain.user" />
       <recent name="br.com.jrr.apiTest.domain.Team" />
-      <recent name="br.com.jrr.apiTest.Repository" />
-      <recent name="br.com.jrr.apiTest.controller" />
-      <recent name="br.com.jrr.apiTest.domain.API" />
     </key>
   </component>
   <component name="RunManager" selected="Application.CommomLeagueApplication">
@@ -463,10 +550,36 @@
     <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
     <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="com.intellij.configurationType" implementationName="SpringBootApplicationConfigurationType" />
+    <option featureType="dependencySupport" implementationName="java:javax.validation:validation-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="java:io.reactivex.rxjava2:rxjava" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AutenticationController.java</url>
+          <line>83</line>
+          <properties class="br.com.jrr.apiTest.controller.AutenticationController" method="register">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

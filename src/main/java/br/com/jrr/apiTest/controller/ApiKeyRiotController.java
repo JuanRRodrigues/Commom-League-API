@@ -1,9 +1,9 @@
 package br.com.jrr.apiTest.controller;
 
-import br.com.jrr.apiTest.domain.Account.AccountRiotRepository;
+import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.AccountRiotRepository;
 import br.com.jrr.apiTest.infra.configsAPI.ApiKeyManager;
 import br.com.jrr.apiTest.domain.API.KeyRiotRegistrationAPI;
-import br.com.jrr.apiTest.domain.Account.AccountRiotWebService;
+import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.AccountRiotWebService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

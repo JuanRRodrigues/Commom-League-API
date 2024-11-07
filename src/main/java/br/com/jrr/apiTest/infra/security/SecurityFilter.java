@@ -1,7 +1,7 @@
 package br.com.jrr.apiTest.infra.security;
 
 
-import br.com.jrr.apiTest.domain.user.UserRepository;
+import br.com.jrr.apiTest.domain.user.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

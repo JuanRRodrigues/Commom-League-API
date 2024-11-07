@@ -1,6 +1,6 @@
 package br.com.jrr.apiTest.controller;
 
-import br.com.jrr.apiTest.domain.Match.Repository.MatchLolRiotRepository;
+import br.com.jrr.apiTest.domain.RiotGames.Match.Repository.MatchLolRiotRepository;
 import br.com.jrr.apiTest.domain.API.DataAccountPaymentAPI;
 import br.com.jrr.apiTest.service.MercadoPago.MercadoPagoWebService;
 import jakarta.validation.Valid;

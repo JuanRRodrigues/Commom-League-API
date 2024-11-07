@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -51,6 +52,9 @@ public class SecurityConfigurations implements WebMvcConfigurer {
                     req.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
                     req.requestMatchers(HttpMethod.POST, "/auth/register").permitAll();
                     req.requestMatchers(HttpMethod.POST, "/api/v1/teams/list").permitAll();
+                    req.requestMatchers(HttpMethod.POST, "/api/v1/matchid/post").permitAll();
+                    req.requestMatchers(HttpMethod.GET, "/api/files/{id}").permitAll();
+                    req.requestMatchers(HttpMethod.PUT, "/api/files/{id}").permitAll();
             //        req.requestMatchers(HttpMethod.POST, "/api/v1/ApiKeyRiot/post").hasRole("ADMIN");
                     req.anyRequest().authenticated();
                 })

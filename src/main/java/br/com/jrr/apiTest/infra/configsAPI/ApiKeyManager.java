@@ -5,7 +5,7 @@ import br.com.jrr.apiTest.domain.API.KeyRiotRegistrationAPI;
 public class ApiKeyManager {
 
 
-    private static String API_KEY = "RGAPI-4f60fcad-8a9e-4c17-8927-0b545cec02b1";
+    private static String API_KEY = "RGAPI-ab536c18-940c-4ee8-94cc-b20cf9f85175";
 
     public static String setApiKey(KeyRiotRegistrationAPI data) {
         API_KEY = data.apiKeyRiot();

@@ -1,17 +1,17 @@
 package br.com.jrr.apiTest.domain.Team;
 
 
-import br.com.jrr.apiTest.domain.Match.MatchEntity;
-import br.com.jrr.apiTest.domain.Torneio.torneio;
-import br.com.jrr.apiTest.domain.user.User;
+
+import br.com.jrr.apiTest.domain.Torneio.Torneio;
+import br.com.jrr.apiTest.domain.user.Entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.UUID;
+
 
 @Getter
 @Entity(name = "team")
@@ -49,7 +49,7 @@ public class Team {
     private User leader;
 
     @ManyToMany(mappedBy = "teams")
-    private final List<torneio> tournaments = new ArrayList<>();
+    private final List<Torneio> tournaments = new ArrayList<>();
 
     public Team(String name, String logo, String game, double saldo, int wins, int loses, boolean inGame, User leader, List<User> players) {
         this.name = name;
@@ -75,7 +75,11 @@ public class Team {
         if (this.players == null) {
             this.players = new ArrayList<>();
         }
-        this.players.add(player);
+        if (this.players.size() < 7) {
+            this.players.add(player);
+        } else {
+            throw new IllegalStateException("Número máximo de jogadores atingido (7).");
+        }
     }
 
     public void setPlayers(List<User> players) {
@@ -184,7 +188,7 @@ public class Team {
         this.leader = leader;
     }
 
-    public List<torneio> getTournaments() {
+    public List<Torneio> getTournaments() {
         return tournaments;
     }
 }
