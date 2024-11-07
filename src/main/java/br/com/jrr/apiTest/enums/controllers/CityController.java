@@ -23,7 +23,7 @@ public class CityController {
         List<CityDTO> citiesInState = new ArrayList<>();
 
         if (state == null) {
-            return citiesInState; 
+            return citiesInState;
         }
 
         for (City city : City.values()) {
