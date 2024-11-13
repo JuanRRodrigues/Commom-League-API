@@ -66,11 +66,9 @@ public class User implements UserDetails {
     @JoinColumn(name = "team_id")
     private Team team;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Fk_AccountRiot")
+    @OneToOne
+    @JoinColumn(name = "account_id")
     private AccountRiot accountRiot;
-
-
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Notification> notifications = new ArrayList<>();
@@ -173,6 +171,8 @@ public class User implements UserDetails {
     }
 
 
+
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -201,6 +201,9 @@ public class User implements UserDetails {
 
     public void setAccountRiot(AccountRiot accountRiot) {
         this.accountRiot = accountRiot;
+        if (accountRiot != null && accountRiot.getUser() != this) {
+            accountRiot.setUser(this);
+        }
     }
 
     @Override

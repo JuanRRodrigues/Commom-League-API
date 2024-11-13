@@ -1,6 +1,6 @@
 package br.com.jrr.apiTest.domain.RiotGames.AccountRiot;
 
-
+import br.com.jrr.apiTest.domain.RiotGames.League.LeagueEntry;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Match;
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.API.DataAccountAPI;
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO.DadosUpdateDTO;
@@ -11,16 +11,14 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(name= "accounst_riot")
+@Table(name = "accounts_riot")
 @Entity(name = "accountRiots")
 @Getter
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-
 public class AccountRiot {
 
     @Id
@@ -36,21 +34,8 @@ public class AccountRiot {
     @NotNull
     private String tagLine;
 
-
-   // @OneToMany(mappedBy = "accountRiot", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-  //  private List<Match> matchList = new ArrayList<>();
-
-
     @NotNull
     private String accountId;
-
-  //  public List<Match> getMatchList() {
-   //     return matchList;
- //   }
-
-   // public void setMatchList(List<Match> matchList) {
-//        this.matchList = matchList;
-//    }
 
     @NotNull
     private String idRiot;
@@ -68,7 +53,16 @@ public class AccountRiot {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public AccountRiot(DataAccountAPI data1, DataAccountAPI data2, List<Match> matchList) {
+    // Relacionamento OneToMany com LeagueEntry
+    @OneToMany(mappedBy = "accountRiot", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<LeagueEntry> leagueEntries = new ArrayList<>();
+
+    // Relacionamento OneToMany com Match
+    @OneToMany(mappedBy = "accountRiot", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Match> matchList = new ArrayList<>();
+
+    // Construtor que inicializa a lista de LeagueEntry e Match
+    public AccountRiot(DataAccountAPI data1, DataAccountAPI data2, List<Match> matchList, List<LeagueEntry> leagueEntries) {
         this.puuid = data1.puuid();
         this.gameName = data1.gameName();
         this.tagLine = data1.tagLine();
@@ -77,45 +71,54 @@ public class AccountRiot {
         this.profileIconId = data2.profileIconId();
         this.revisionDate = data2.revisionDate();
         this.summonerLevel = data2.summonerLevel();
-      //  this.matchList = matchList;
+        this.matchList = matchList != null ? matchList : new ArrayList<>();
+        this.leagueEntries = leagueEntries != null ? leagueEntries : new ArrayList<>();
     }
-
-
-
-
-
-  //  public void addMatch(Match match) {
-     //   matchList.add(match);
-       // match.setAccountRiot(this); // Estabelece a relação bidirecional
-  //  }
-
- //   public void addMatches(List<Match> matches) {
-  //      for (Match match : matches) {
-  //          addMatch(match); // Chama o método existente para adicionar cada match
-  //      }
-  //  }
 
     public AccountRiot() {
-
     }
 
-   // public void setIdMatchList(List<Match> idMatchList) {
-    //    this.matchList = idMatchList;
- //   }
-
-    public void UpdateAccountDTO(DadosUpdateDTO dados) {
-        if(dados.gameName() != null){
+    // Método para atualizar informações do AccountRiot com o DadosUpdateDTO
+    public void updateAccountDTO(DadosUpdateDTO dados) {
+        if (dados.gameName() != null) {
             this.gameName = dados.gameName();
         }
-        if(dados.tagLine() != null){
+        if (dados.tagLine() != null) {
             this.tagLine = dados.tagLine();
         }
-
     }
 
+    // Método para adicionar uma partida à lista
+    public void addMatch(Match match) {
+        matchList.add(match);
+        match.setAccountRiot(this); // Estabelece a relação bidirecional
+    }
+
+    // Método para adicionar várias partidas à lista
+    public void addMatches(List<Match> matches) {
+        for (Match match : matches) {
+            addMatch(match); // Chama o método existente para adicionar cada match
+        }
+    }
+
+    // Método para adicionar uma liga à lista
+    public void addLeagueEntry(LeagueEntry leagueEntry) {
+        leagueEntries.add(leagueEntry);
+        leagueEntry.setAccountRiot(this); // Estabelece a relação bidirecional
+    }
+
+    // Método para adicionar várias ligas à lista
+    public void addLeagueEntries(List<LeagueEntry> leagueEntries) {
+        for (LeagueEntry leagueEntry : leagueEntries) {
+            addLeagueEntry(leagueEntry); // Chama o método existente para adicionar cada leagueEntry
+        }
+    }
 
     public void setUser(User user) {
         this.user = user;
+        if (user != null && user.getAccountRiot() != this) {
+            user.setAccountRiot(this);  // Atualiza o User com o AccountRiot
+        }
     }
 
     @Override
@@ -125,11 +128,12 @@ public class AccountRiot {
                 ", puuid='" + puuid + '\'' +
                 ", gameName='" + gameName + '\'' +
                 ", tagLine='" + tagLine + '\'' +
-          //      ", idMatchList=" + matchList +
+                ", matchList=" + matchList +
+                ", leagueEntries=" + leagueEntries +
                 '}';
     }
 
-
+    // Getters e Setters
     public String getId() {
         return id;
     }
@@ -158,6 +162,22 @@ public class AccountRiot {
         return tagLine;
     }
 
+    public List<LeagueEntry> getLeagueEntries() {
+        return leagueEntries;
+    }
+
+    public void setLeagueEntries(List<LeagueEntry> leagueEntries) {
+        this.leagueEntries = leagueEntries;
+    }
+
+    public List<Match> getMatchList() {
+        return matchList;
+    }
+
+    public void setMatchList(List<Match> matchList) {
+        this.matchList = matchList;
+    }
+
     public void setTagLine(@NotNull String tagLine) {
         this.tagLine = tagLine;
     }
@@ -169,8 +189,6 @@ public class AccountRiot {
     public void setAccountId(@NotNull String accountId) {
         this.accountId = accountId;
     }
-
-
 
     public @NotNull String getIdRiot() {
         return idRiot;

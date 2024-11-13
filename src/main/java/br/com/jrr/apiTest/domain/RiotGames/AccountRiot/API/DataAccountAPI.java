@@ -30,10 +30,18 @@ public record DataAccountAPI(String id,
                              @NotBlank
                              @JsonAlias("profileIconId")String profileIconId,
                              @NotBlank
-                             @JsonAlias("profileIconId")String summonerLevel,
-
+                             @JsonAlias("summonerLevel")String summonerLevel,
                              //Data 3 - PUUID
-                             @JsonProperty("idMatch")List<String> idMatchList
+                             @JsonProperty("idMatch")List<String> idMatchList,
+
+                             //Data 4 - ACCOUNTID
+                             @JsonAlias("queueType")String queueType,
+                             @JsonAlias("tier")String tier,
+                             @JsonAlias("rank")String elo,
+                             @JsonAlias("leaguePoints")String leaguePoints,
+                             @JsonAlias("wins")String wins,
+                             @JsonAlias("losses")String losses
+
 
 
 

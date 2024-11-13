@@ -5,13 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21de2451-b762-4a78-84b4-c00140de6bf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/DTO/CountryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/DTO/StateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/controllers/CountryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/controllers/StateController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AssociacaoContaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/addAccountRiotDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/League/LeagueEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/League/LeagueEntryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/League/LeagueEntryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/League/LeagueEntryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/DTO/LeagueRegionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/controllers/LeagueRegionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/exception/AccountAlreadyAssociatedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/exception/AccountRiotNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/controllers/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/enums/controllers/CityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/enums/controllers/CityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/enums/controllers/CityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountRegistrationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountRegistrationAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Metadado/Metadado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Metadado/Metadado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CommomLeaguePOC-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CommomLeaguePOC-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CommomLeaguePOC-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CommomLeaguePOC-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountRegistrationAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/API/DataAccountRegistrationAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Metadado/Metadado.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Metadado/Metadado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,11 +145,11 @@
       <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\s\anime-web\src\main\resources\templates\users" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO" />
       <recent name="br.com.jrr.apiTest.domain.DTO" />
       <recent name="br.com.jrr.apiTest.domain.file.model" />
       <recent name="br.com.jrr.apiTest.domain.user.DTO" />
       <recent name="br.com.jrr.apiTest.domain.user" />
-      <recent name="br.com.jrr.apiTest.domain.Team" />
     </key>
   </component>
   <component name="RunManager" selected="Application.CommomLeagueApplication">
@@ -416,6 +440,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Entity/User.java</url>
+          <line>98</line>
+          <properties class="br.com.jrr.apiTest.domain.user.Entity.User" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

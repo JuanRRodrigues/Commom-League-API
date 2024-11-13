@@ -12,7 +12,6 @@ import java.util.List;
 @Entity
 @Table(name = "GameMetadado")
 @Data
-@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Metadado {
 
@@ -21,11 +20,10 @@ public class Metadado {
         @GeneratedValue(strategy = GenerationType.UUID)
         private String id;
 
-        @Getter
         @JsonAlias("matchId")
         private String matchId;
 
-        @Getter
+
         @JsonAlias("dataVersion")
         private String dataVersion;
 

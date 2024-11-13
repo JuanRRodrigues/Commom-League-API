@@ -16,10 +16,11 @@ public record AccountRiotDTO(
         String profileIconId,
         String revisionDate,
         String summonerLevel
-     //   List<br.com.jrr.apiTest.domain.RiotGames.Match.Match> matchList
+
+        //   List<br.com.jrr.apiTest.domain.RiotGames.Match.Match> matchList
 ) {
 
-
+    // Método de conversão de AccountRiot para AccountRiotDTO
     public static AccountRiotDTO fromAccountRiot(AccountRiot accountRiot) {
         if (accountRiot == null) {
             return null;
@@ -35,10 +36,12 @@ public record AccountRiotDTO(
                 accountRiot.getProfileIconId(),
                 accountRiot.getRevisionDate(),
                 accountRiot.getSummonerLevel()
-              //  accountRiot.getMatchList() // Supondo que este método retorne List<Match>
-              //          .stream()
-              //          .map(MatchDTO::fromMatch) // Converter cada Match em MatchDTO
-               //         .collect(Collectors.toList()) // Coletar em uma lista de MatchDTO
+
+
+                //  accountRiot.getMatchList() // Supondo que este método retorne List<Match>
+                //          .stream()
+                //          .map(MatchDTO::fromMatch) // Converter cada Match em MatchDTO
+                //         .collect(Collectors.toList()) // Coletar em uma lista de MatchDTO
         );
     }
 }
