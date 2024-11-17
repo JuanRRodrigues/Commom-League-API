@@ -2,6 +2,8 @@ package br.com.jrr.apiTest.domain.RiotGames.Match;
 
 
 
+import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.AccountRiot;
+import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.AccountRiotRepository;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Info.Info;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Participant.Participant;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Info.infoRepository.InfoRepository;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,6 +30,9 @@ public class MatchRiotWebService {
 
     @Autowired
     private InfoRepository infoRepository;
+
+    @Autowired
+    private AccountRiotRepository repositoryAccount;
 
     private final GetData get = new GetData();
     private final ConvertData convert = new ConvertData();
@@ -51,10 +57,14 @@ public class MatchRiotWebService {
                 .collect(Collectors.toList());
     }
 
-    public Match getMatchById(Long matchId) {
+    public Match getMatchById(String matchId) {
         // Busca a partida usando o matchId e retorna o DTO correspondente
         var match = Repository.findById(matchId).orElseThrow(() -> new RuntimeException("Match not found"));
         return match;
+    }
+
+    public List<Match> getmatchByPuuid(String puuid) {
+        return Repository.findByAccountRiot_Id(puuid);
     }
 
 
@@ -78,6 +88,10 @@ public class MatchRiotWebService {
 
         // Atualiza a lista de participantes na entidade Match
         match.getInfo().setParticipants(participants);
+
+        AccountRiot user = repositoryAccount.findByPuuid("rzSO3JFUGQqzIZyf_r3Ig6Vx3-Ev-IT1nV92fIQyQVCQgkM6LyuqXljk6r47PuwcEj7ifijj5GNN-A");
+
+       // match.setAccountRiot((Set<AccountRiot>) user);
 
         // Salva a entidade Match com a associação dos participantes
         Match savedMatch = Repository.save(match);

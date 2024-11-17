@@ -64,6 +64,9 @@ public class Participant {
     @JsonBackReference
     private Info info;
 
+    @JsonAlias("teamId")
+    private String teamId;
+
     @JsonCreator
     public Participant(@JsonProperty("id") Long id,
                        @JsonProperty("baronKills") String baronKills,
@@ -81,6 +84,7 @@ public class Participant {
                        @JsonProperty("riotIdTagline") String riotIdTagline,
                        @JsonProperty("tripleKills") String tripleKills,
                        @JsonProperty("win") Boolean win,
+                       @JsonProperty("teamId") String teamId,
                        @JsonProperty("info") Info info) {
         this.id = id;
         this.baronKills = baronKills;
@@ -88,6 +92,7 @@ public class Participant {
         this.championId = championId;
         this.championName = championName;
         this.deaths = deaths;
+        this.teamId = teamId;
         this.doubleKills = doubleKills;
         this.dragonKills = dragonKills;
         this.gameEndedInSurrender = gameEndedInSurrender;
@@ -124,6 +129,14 @@ public class Participant {
                 ", win=" + win +
 
                 '}';
+    }
+
+    public String getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
     }
 
     public Long getId() {

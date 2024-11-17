@@ -9,7 +9,7 @@ public class FileMapper {
 
     public File toEntity(String id, FileUploadRequest fileUploadRequest) throws IOException {
         return new File(
-                fileUploadRequest.name(),
+                null,
                 fileUploadRequest.name(),
                 fileUploadRequest.file().getSize(),
                 fileUploadRequest.file().getBytes() // Adicione os bytes da imagem

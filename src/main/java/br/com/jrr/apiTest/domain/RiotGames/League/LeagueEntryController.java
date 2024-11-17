@@ -33,7 +33,7 @@ public class LeagueEntryController {
 
     // Endpoint para buscar LeagueEntry por id
     @GetMapping("/{id}")
-    public Optional<LeagueEntry> getLeagueEntryById(@PathVariable Long id) {
+    public Optional<LeagueEntry> getLeagueEntryById(@PathVariable String id) {
         return leagueEntryService.getLeagueEntryById(id);
     }
 }

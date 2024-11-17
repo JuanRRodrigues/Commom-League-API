@@ -8,6 +8,9 @@ import br.com.jrr.apiTest.domain.user.DTO.UserDTO;
 import br.com.jrr.apiTest.domain.user.DTO.UserLanguageEditDTO;
 import br.com.jrr.apiTest.domain.user.Entity.User;
 import br.com.jrr.apiTest.domain.user.repository.UserRepository;
+import br.com.jrr.apiTest.enums.adress.City;
+import br.com.jrr.apiTest.enums.adress.Country;
+import br.com.jrr.apiTest.enums.adress.State;
 import br.com.jrr.apiTest.exception.AuthenticationException;
 import br.com.jrr.apiTest.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -172,7 +175,7 @@ public class TeamService {
                     user.getImage(),
                     user.getCity(),
                     user.getCountry(),
-                    user.getCity(),
+                    user.getState(),
                     user.getLeagueRegion(),
                     user.getLanguage(),
                     AccountRiotDTO.fromAccountRiot(user.getAccountRiot())
@@ -211,24 +214,44 @@ public class TeamService {
         if (userDto.userName() != null) {
             existingUser.setUserName(userDto.userName());
         }
+
         if (userDto.fullName() != null) {
             existingUser.setFullName(userDto.fullName());
         }
+
+        // Aqui, agora vamos garantir que o valor do enum seja passado corretamente
         if (userDto.country() != null) {
-            existingUser.setCountry(userDto.country());
+            try {
+                // Conversão direta para o Enum Country
+                existingUser.setCountry(Country.valueOf(String.valueOf(userDto.country())));
+            } catch (IllegalArgumentException e) {
+
+            }
         }
+
         if (userDto.state() != null) {
-            existingUser.setState(userDto.state());
+            try {
+                // Conversão direta para o Enum State
+                existingUser.setState(State.valueOf(String.valueOf(userDto.state())));
+            } catch (IllegalArgumentException e) {
+
+            }
         }
+
         if (userDto.city() != null) {
-            existingUser.setCity(userDto.city());
+            try {
+                // Conversão direta para o Enum City
+                existingUser.setCity(City.valueOf(String.valueOf(userDto.city())));
+            } catch (IllegalArgumentException e) {
+
+            }
         }
 
         userRepository.save(existingUser);
 
         return "User data updated successfully.";
-
     }
+
 
     public String editLanguage(UserLanguageEditDTO userDto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

@@ -5,6 +5,9 @@ import br.com.jrr.apiTest.domain.Team.Team;
 import br.com.jrr.apiTest.domain.user.enums.UserRole;
 import br.com.jrr.apiTest.enums.Language;
 import br.com.jrr.apiTest.enums.LeagueRegion;
+import br.com.jrr.apiTest.enums.adress.City;
+import br.com.jrr.apiTest.enums.adress.Country;
+import br.com.jrr.apiTest.enums.adress.State;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -42,11 +45,14 @@ public class User implements UserDetails {
 
     private String telefone;
 
-    private String country;
+    @Enumerated(EnumType.STRING)
+    private Country country;
 
-    private String state;
+    @Enumerated(EnumType.STRING)
+    private State state;
 
-    private String city;
+    @Enumerated(EnumType.STRING)
+    private City city;
 
     private UserRole role;
 
@@ -96,7 +102,7 @@ public class User implements UserDetails {
        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    public User(String login, String userName, String password, UserRole role, String telefone, LocalDate birthDate, String cpf, String fullName, Team team, Double saldo, AccountRiot accountRiot,String image,String country, String city, String state, Language language, LeagueRegion leagueRegion) {
+    public User(String login, String userName, String password, UserRole role, String telefone, LocalDate birthDate, String cpf, String fullName, Team team, Double saldo, AccountRiot accountRiot,String image,Country country, City city, State state, Language language, LeagueRegion leagueRegion) {
         this.login = login;
         this.password = password;
         this.role = role;
@@ -137,27 +143,27 @@ public class User implements UserDetails {
         this.userName = userName;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 
-    public void setState(String state) {
+    public void setState(State state) {
         this.state = state;
     }
 
-    public void setCity(String city) {
+    public void setCity(City city) {
         this.city = city;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public String getState() {
+    public State getState() {
         return state;
     }
 
-    public String getCity() {
+    public City getCity() {
         return city;
     }
 

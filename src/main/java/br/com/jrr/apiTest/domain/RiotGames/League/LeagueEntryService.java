@@ -27,7 +27,7 @@ public class LeagueEntryService {
     }
 
     // Método para buscar LeagueEntry por ID
-    public Optional<LeagueEntry> getLeagueEntryById(Long id) {
+    public Optional<LeagueEntry> getLeagueEntryById(String id) {
         return leagueEntryRepository.findById(id);
     }
 }

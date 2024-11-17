@@ -42,7 +42,7 @@ public class UserController {
             @Validated @RequestParam("file") MultipartFile file,
             @RequestParam("name") String name
     ) throws IOException {
-        FileUploadRequest fileUploadRequest = new FileUploadRequest(file, name);
+        FileUploadRequest fileUploadRequest = new FileUploadRequest(null, file, name);
         return ResponseEntity.ok(service.upload(fileUploadRequest));
 
     }

@@ -1,6 +1,8 @@
 package br.com.jrr.apiTest.enums.adress;
 
 import br.com.jrr.apiTest.enums.Language;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Country {
     BRAZIL("Brazil", Language.PORTUGUESE),
@@ -26,6 +28,21 @@ public enum Country {
 
     public Language getLanguage() {
         return language;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return name;
+    }
+
+    @JsonCreator
+    public static Country fromValue(String value) {
+        for (Country country : values()) {
+            if (country.getValue().equalsIgnoreCase(value)) {
+                return country;
+            }
+        }
+        throw new IllegalArgumentException("Invalid country: " + value);
     }
 
     @Override

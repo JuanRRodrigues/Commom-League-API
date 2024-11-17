@@ -1,5 +1,8 @@
 package br.com.jrr.apiTest.enums.adress;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum City {
     // Brasil
     SAO_PAULO_CITY("São Paulo", State.SAO_PAULO),
@@ -23,7 +26,6 @@ public enum City {
     OSAKA_CITY("Osaka", State.OSAKA),
     SAPPORO("Sapporo", State.HOKKAIDO),
     KYOTO_CITY("Kyoto", State.KYOTO),
-
 
     PARIS("Paris", State.ILE_DE_FRANCE),
     LYON("Lyon", State.AUVERGNE_RHONE_ALPES),
@@ -50,6 +52,7 @@ public enum City {
     private final String name;
     private final State state;
 
+    // Construtor
     City(String name, State state) {
         this.name = name;
         this.state = state;
@@ -63,8 +66,20 @@ public enum City {
         return state;
     }
 
+    @JsonValue
     @Override
     public String toString() {
         return name;
+    }
+
+    // Método que recebe o nome da cidade como String e retorna o Enum correspondente
+    @JsonCreator
+    public static City fromString(String name) {
+        for (City city : City.values()) {
+            if (city.name.equalsIgnoreCase(name)) {
+                return city;
+            }
+        }
+        throw new IllegalArgumentException("Unknown city: " + name);
     }
 }

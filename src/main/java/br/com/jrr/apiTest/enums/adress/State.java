@@ -1,5 +1,7 @@
 package br.com.jrr.apiTest.enums.adress;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public enum State {
     // Brasil
     SAO_PAULO("São Paulo", Country.BRAZIL),
@@ -63,5 +65,15 @@ public enum State {
     @Override
     public String toString() {
         return name;
+    }
+
+    @JsonCreator
+    public static State fromString(String value) {
+        for (State state : values()) {
+            if (state.name().equalsIgnoreCase(value.replace(" ", "_"))) { // Permite tratar valores como "Minas Gerais"
+                return state;
+            }
+        }
+        throw new IllegalArgumentException("Unknown state: " + value);
     }
 }

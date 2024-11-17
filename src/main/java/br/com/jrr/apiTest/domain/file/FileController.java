@@ -26,7 +26,7 @@ public class FileController {
             @Validated @RequestParam("file") MultipartFile file,
             @RequestParam("name") String name) throws IOException {
 
-        FileUploadRequest fileUploadRequest = new FileUploadRequest(file, name);
+        FileUploadRequest fileUploadRequest = new FileUploadRequest(null, file, name);
         return ResponseEntity.ok(fileService.upload(fileUploadRequest));
     }
 
@@ -49,7 +49,7 @@ public class FileController {
             @RequestParam("file") MultipartFile file) throws IOException {
 
         // Criação de um objeto de solicitação para atualização de imagem
-        FileUploadRequest fileUploadRequest = new FileUploadRequest(file, id);
+        FileUploadRequest fileUploadRequest = new FileUploadRequest(null, file, id);
 
         // Chama o serviço para atualizar a imagem
         FileUploadResponse response = fileService.update(id, fileUploadRequest);

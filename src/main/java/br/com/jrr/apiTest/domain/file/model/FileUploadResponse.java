@@ -5,5 +5,8 @@ public record FileUploadResponse(
         String name,
         Long size ){
 
-
+    @Override
+    public String name() {
+        return name;
+    }
 }

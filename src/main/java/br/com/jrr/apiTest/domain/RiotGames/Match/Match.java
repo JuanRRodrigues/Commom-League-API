@@ -7,8 +7,12 @@ import br.com.jrr.apiTest.domain.RiotGames.Match.API.DataMatchAPI;
 
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.AccountRiot;
 import br.com.jrr.apiTest.domain.Torneio.Torneio;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.persistence.*;
 import lombok.Getter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,10 +20,12 @@ import lombok.Getter;
 public class Match {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
+    @JsonAlias("matchId")
     private String matchId;
+
     private String gameMode;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -28,13 +34,16 @@ public class Match {
     @OneToOne(cascade = CascadeType.ALL)
     private Metadado metadado;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_riot_id")
-    private AccountRiot accountRiot;
+    // Relacionamento Many-to-Many com AccountRiot
+    @ManyToMany
+    @JoinTable(
+            name = "match_account",
+            joinColumns = @JoinColumn(name = "match_id"),
+            inverseJoinColumns = @JoinColumn(name = "account_riot_id")
+    )
+    private Set<AccountRiot> accountRiot = new HashSet<>();
 
-    public AccountRiot getAccountRiot() {
-        return accountRiot;
-    }
+
 
     @ManyToOne
     @JoinColumn(name = "tournament_id")
@@ -58,7 +67,6 @@ public class Match {
     @Override
     public String toString() {
         return "MatchEntity{" +
-                "id=" + id +
                 ", matchId='" + matchId + '\'' +
                 ", gameMode='" + gameMode + '\'' +
                 ", info=" + info +
@@ -66,15 +74,12 @@ public class Match {
                 '}';
     }
 
-    public Long getId() {
-        return id;
+
+    public Set<AccountRiot> getAccountRiot() {
+        return accountRiot;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setAccountRiot(AccountRiot accountRiot) {
+    public void setAccountRiot(Set<AccountRiot> accountRiot) {
         this.accountRiot = accountRiot;
     }
 

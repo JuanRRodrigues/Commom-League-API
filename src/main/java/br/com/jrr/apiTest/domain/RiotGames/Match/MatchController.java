@@ -2,6 +2,7 @@ package br.com.jrr.apiTest.domain.RiotGames.Match;
 
 import br.com.jrr.apiTest.domain.RiotGames.Match.API.MatchRegistrationAPI;
 import br.com.jrr.apiTest.domain.RiotGames.Match.DTO.MatchDTO;
+import br.com.jrr.apiTest.domain.RiotGames.Match.Participant.Participant;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Repository.MatchLolRiotRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,16 @@ private MatchRiotWebService service;
     public List<MatchDTO> getMatch() {
         return service.getMatch();
     }
+
+    @GetMapping("/match/{puuid}")
+    public List<Match> getMAtchsByPuuid(@PathVariable String puuid) {
+        return service.getmatchByPuuid(puuid);
+    }
+
+
+
     @GetMapping("/{matchId}")
-    public Match getMatchById(@PathVariable Long matchId) {
+    public Match getMatchById(@PathVariable String matchId) {
 
         return service.getMatchById(matchId);
     }

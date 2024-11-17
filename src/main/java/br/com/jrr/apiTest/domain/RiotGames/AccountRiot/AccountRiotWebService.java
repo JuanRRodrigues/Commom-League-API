@@ -25,9 +25,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -71,12 +69,6 @@ public class AccountRiotWebService {
     }
 
 
-    public List<AccountMatchRiotDTO> getHistoric() {
-        return Repository.findAll()
-                .stream()
-                .map(s -> new AccountMatchRiotDTO(s.getId(), s.getPuuid(), s.getGameName(), s.getTagLine()))
-                .collect(Collectors.toList());
-    }
 
     public AccountRiotDTO getById(String id) {
         Optional<AccountRiot> optionalPlayer = Repository.findById(id);
@@ -95,37 +87,49 @@ public class AccountRiotWebService {
         )).orElse(null); // Se não encontrado, retorna null
     }
 
+    public AccountRiot getByIdMatch(String id) {
+        // Usando findById que retorna um Optional<AccountRiot>
+        Optional<AccountRiot> optionalAccountRiot = Repository.findById(id);
+
+        // Verificando se o AccountRiot foi encontrado
+        if (optionalAccountRiot.isPresent()) {
+            // Retorna o AccountRiot caso encontrado
+            return optionalAccountRiot.get();
+        } else {
+            // Lança uma exceção ou retorna um valor adequado, caso não encontrado
+            throw new RuntimeException("AccountRiot com ID " + id + " não encontrado");
+        }
+    }
+
 
     public AssociacaoContaDTO registerByAPI(DataAccountRegistrationAPI data) {
-        // Extraindo os dados de entrada
         String gameName = data.gameName();
         String tagLine = data.tagLine();
         String region = data.region();
 
         String continente = "americas";
-
-        // Definindo a região
         switch (region) {
-            case "BR1": // Região Brasil
-            case "NA1": // Região América do Norte
-                continente = "americas";  // Ambas as regiões mapeiam para 'americas'
+            case "BR1":
+            case "NA1":
+                continente = "americas";
                 break;
-            case "KR":  // Região Coreia
-                continente = "asia";      // Mapeando para 'asia'
+            case "KR":
+                continente = "asia";
                 break;
             default:
                 System.out.println("Região não suportada: " + region);
-                return null;  // Retorna null se a região não for reconhecida
+                return null;
         }
 
         try {
-            // Verificar se a conta já existe pelo gameName/tagLine
             Optional<AccountRiot> existingAccountByName = Repository.findByGameNameContainingAndTagLineContaining(gameName, tagLine);
             if (existingAccountByName.isPresent()) {
-                System.out.println("Conta com o mesmo gameName e tagLine já registrada.");
-                // Retorna DTO da conta já existente, sem necessidade de fazer as requisições
                 AccountRiot existingPlayer = existingAccountByName.get();
                 LeagueEntry firstLeagueEntry = existingPlayer.getLeagueEntries().isEmpty() ? null : existingPlayer.getLeagueEntries().get(0);
+
+                if (existingPlayer.getMatches() != null && !existingPlayer.getMatches().isEmpty()) {
+                    System.out.println("Conta já tem " + existingPlayer.getMatches().size() + " partidas associadas.");
+                }
 
                 return new AssociacaoContaDTO(
                         existingPlayer.getId(),
@@ -133,7 +137,7 @@ public class AccountRiotWebService {
                         existingPlayer.getTagLine(),
                         existingPlayer.getProfileIconId(),
                         existingPlayer.getSummonerLevel(),
-                        firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getWins()) : "0", // Exemplo, assume-se que exista pelo menos uma LeagueEntry
+                        firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getWins()) : "0",
                         firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getLosses()) : "0",
                         firstLeagueEntry != null ? firstLeagueEntry.getTier() + " " + firstLeagueEntry.getElo() : "Unranked",
                         firstLeagueEntry != null ? firstLeagueEntry.getQueueType() : "Empty",
@@ -141,32 +145,28 @@ public class AccountRiotWebService {
                 );
             }
 
-            // Se a conta não existir, faz as requisições à API para coletar os dados
+            // Caso a conta não exista, continue processando
             String urlConta = buildAccountUrl(continente, gameName, tagLine);
             String json = get.obterDados(urlConta);
-
-            // Verifique se a resposta é válida antes de tentar desserializar
             if (json == null || json.contains("error")) {
                 throw new RuntimeException("Erro ao obter dados da conta.");
             }
 
-            // Checando se o JSON é um array e removendo os colchetes
             if (json.startsWith("[") && json.endsWith("]")) {
-                // Remover os colchetes e processar o primeiro item
                 json = json.substring(1, json.length() - 1);
             }
 
-            // Agora o JSON está no formato correto para deserializar
             ObjectMapper objectMapper = new ObjectMapper();
             DataAccountAPI dataAccountAPI = objectMapper.readValue(json, DataAccountAPI.class);
 
-            // Verificar se já existe uma conta com o mesmo puuid
             Optional<AccountRiot> existingAccountByPuuid = Optional.ofNullable(Repository.findByPuuid(dataAccountAPI.puuid()));
             if (existingAccountByPuuid.isPresent()) {
-                System.out.println("Conta com o mesmo puuid já registrada.");
-                // Retorna DTO da conta já existente, sem necessidade de fazer as requisições
                 AccountRiot existingPlayer = existingAccountByPuuid.get();
                 LeagueEntry firstLeagueEntry = existingPlayer.getLeagueEntries().isEmpty() ? null : existingPlayer.getLeagueEntries().get(0);
+
+                if (existingPlayer.getMatches() != null && !existingPlayer.getMatches().isEmpty()) {
+                    System.out.println("Conta já tem " + existingPlayer.getMatches().size() + " partidas associadas.");
+                }
 
                 return new AssociacaoContaDTO(
                         existingPlayer.getId(),
@@ -174,75 +174,57 @@ public class AccountRiotWebService {
                         existingPlayer.getTagLine(),
                         existingPlayer.getProfileIconId(),
                         existingPlayer.getSummonerLevel(),
-                        firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getWins()) : "0", // Exemplo, assume-se que exista pelo menos uma LeagueEntry
-                        firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getLosses()) : "0",
-                        firstLeagueEntry != null ? firstLeagueEntry.getTier() + " " + firstLeagueEntry.getElo() : "Unranked",
-                        firstLeagueEntry != null ? firstLeagueEntry.getQueueType() : "Empty",
-                        firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getLeaguePoints()) : "0"
+                        "0", "0", "Unranked", "Empty", "0"
                 );
             }
 
-            // Continuar o processamento para salvar o novo jogador, se não encontrado na base
-
-            // Obtenção do Summoner (informações adicionais)
             String urlSummoner = buildSummonerUrl(region, dataAccountAPI.puuid());
             String json2 = get.obterDados(urlSummoner);
             DataAccountAPI dataAccountAPI2 = convert.getDate(json2, DataAccountAPI.class);
 
-            // Obtenção da Liga (informações adicionais)
             String urlLeague = buildLeagueUrl(region, dataAccountAPI2.id());
             String json4 = get.obterDados(urlLeague);
-
-            // Deserializando a resposta da liga como uma lista de LeagueEntry
             List<LeagueEntry> leagueEntries = objectMapper.readValue(json4, new TypeReference<List<LeagueEntry>>() {});
 
-            // Verifique se a resposta da liga está correta
             if (leagueEntries == null || leagueEntries.isEmpty()) {
                 throw new RuntimeException("Nenhuma liga encontrada.");
             }
 
-            // Obtendo as partidas do jogador
             String urlMatches = buildMatchesUrl(continente, dataAccountAPI.puuid());
             String matchJson = get.obterDados(urlMatches);
-
-            // Verifique se a resposta das partidas está correta
             List<String> dataMatch = convert.getDateAsList(matchJson);
+
             if (dataMatch == null || dataMatch.isEmpty()) {
                 throw new RuntimeException("Nenhuma partida encontrada.");
             }
 
-            // Criando uma lista de partidas
-            List<Match> matchesSaved = new ArrayList<>();
+            Set<Match> matchesSaved = new HashSet<>();
             for (String matchId : dataMatch) {
                 Match matchSaved = new Match();
                 matchSaved.setMatchId(matchId);
                 matchesSaved.add(matchSaved);
             }
 
-            // Criando o objeto AccountRiot com todos os dados obtidos
             AccountRiot player = new AccountRiot(dataAccountAPI, dataAccountAPI2, matchesSaved, leagueEntries);
 
-            // Associando o accountRiot com as LeagueEntries
+            // Associando o AccountRiot aos LeagueEntries
             for (LeagueEntry leagueEntry : leagueEntries) {
-                leagueEntry.setAccountRiot(player); // Atribuindo a referência do AccountRiot
+                leagueEntry.setAccountRiot(player);
             }
 
-            // Salvando a conta no repositório
+            // Associando o AccountRiot aos Matches
+            for (Match match : matchesSaved) {
+                match.setAccountRiot(player);
+            }
+
             AccountRiot savedPlayer = Repository.save(player);
-            System.out.println("Conta salva com sucesso: " + savedPlayer);
 
-            // A partir daqui, em vez de retornar um AccountRiotDTO, retornamos um AssociacaoContaDTO
-
-            // Extrair dados relevantes da liga (usando o primeiro LeagueEntry como exemplo)
             LeagueEntry firstLeagueEntry = leagueEntries.isEmpty() ? null : leagueEntries.get(0);
-
             String elo = firstLeagueEntry != null ? firstLeagueEntry.getTier() + " " + firstLeagueEntry.getElo() : "Unranked";
             String wins = firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getWins()) : "0";
-            String loses = firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getLosses()) : "0";
-            String queueType = firstLeagueEntry != null ? firstLeagueEntry.getQueueType() : "Empty";
-            String points = firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getLeaguePoints()) : "0";
+            String losses = firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getLosses()) : "0";
+            String leaguePoints = firstLeagueEntry != null ? String.valueOf(firstLeagueEntry.getLeaguePoints()) : "0";
 
-            // Criando o DTO de associação
             return new AssociacaoContaDTO(
                     savedPlayer.getId(),
                     savedPlayer.getGameName(),
@@ -250,17 +232,21 @@ public class AccountRiotWebService {
                     savedPlayer.getProfileIconId(),
                     savedPlayer.getSummonerLevel(),
                     wins,
-                    loses,
+                    losses,
                     elo,
-                    queueType,
-                    points
+                    firstLeagueEntry != null ? firstLeagueEntry.getQueueType() : "Empty",
+                    leaguePoints
             );
-
         } catch (Exception e) {
-            System.out.println("Erro ao registrar conta: " + e.getMessage());
-            return null;
+            e.printStackTrace();
+            throw new RuntimeException("Erro ao registrar jogador.", e);
         }
     }
+
+
+
+
+
 
     // Método que faz a busca parcial por gameName e tagLine
     public List<AccountRiot> searchAccounts(String gameName, String tagLine) {
@@ -331,7 +317,6 @@ public class AccountRiotWebService {
     private String buildLeagueUrl(String region, String accountId) {
         return "https://" + region + ".api.riotgames.com/lol/league/v4/entries/by-summoner/" + accountId + "?api_key=" + ApiKeyManager.getApiKey();
     }
-
 
 
     public String addAccountRiot(addAccountRiotDTO data) {

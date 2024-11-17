@@ -44,4 +44,6 @@ public record AccountRiotDTO(
                 //         .collect(Collectors.toList()) // Coletar em uma lista de MatchDTO
         );
     }
+
+
 }

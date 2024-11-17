@@ -5,6 +5,9 @@ import br.com.jrr.apiTest.domain.user.Entity.User;
 import br.com.jrr.apiTest.domain.user.enums.UserRole;
 import br.com.jrr.apiTest.enums.Language;
 import br.com.jrr.apiTest.enums.LeagueRegion;
+import br.com.jrr.apiTest.enums.adress.City;
+import br.com.jrr.apiTest.enums.adress.Country;
+import br.com.jrr.apiTest.enums.adress.State;
 
 import java.time.LocalDate;
 
@@ -20,9 +23,9 @@ public record UserDTO(
         double saldo,
         LocalDate birthDate,
         String image,
-        String city,
-        String country,
-        String state,
+        City city,
+        Country country,
+        State state,
         LeagueRegion leagueRegion,
         Language language,
         AccountRiotDTO AccountRiot

@@ -1,8 +1,8 @@
 package br.com.jrr.apiTest.domain.RiotGames.AccountRiot;
 
-import br.com.jrr.apiTest.controller.TeamAndPlayerDTO;
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.API.DataAccountRegistrationAPI;
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/accountsRiot")
@@ -29,9 +27,13 @@ public class AccountRiotController {
         return service.getAccount();
     }
 
-    @GetMapping("/matches")
-    public List<AccountMatchRiotDTO> getAccountMatches() {
-        return service.getHistoric();
+
+    @GetMapping("/{accountId}/matches")
+    public MatchListDTO getMatchList(@PathVariable String accountId) {
+        AccountRiotDTO accountRiot = service.getById(accountId);
+
+
+        return null;
     }
 
     @GetMapping("/{id}")
@@ -47,7 +49,7 @@ public class AccountRiotController {
     }
 
     @PostMapping("/post")
-    public AssociacaoContaDTO postByAPI(@RequestBody @Valid DataAccountRegistrationAPI data, UriComponentsBuilder uriBuilder) {
+    public AssociacaoContaDTO postByAPI(@RequestBody @Valid DataAccountRegistrationAPI data, UriComponentsBuilder uriBuilder) throws JsonProcessingException {
         return service.registerByAPI(data);
     }
 

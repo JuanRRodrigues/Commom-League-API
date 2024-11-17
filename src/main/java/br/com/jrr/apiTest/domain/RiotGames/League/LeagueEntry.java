@@ -12,9 +12,10 @@ import jakarta.persistence.*;
 public class LeagueEntry {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
+    @JsonAlias("leagueId")
     private String leagueId;
 
     @JsonAlias("queueType")   // Mapeando 'queueType' no JSON para o campo 'queueType' da classe
@@ -117,7 +118,6 @@ public class LeagueEntry {
     @Override
     public String toString() {
         return "LeagueEntry{" +
-                "id=" + id +
                 ", leagueId='" + leagueId + '\'' +
                 ", queueType='" + queueType + '\'' +
                 ", tier='" + tier + '\'' +

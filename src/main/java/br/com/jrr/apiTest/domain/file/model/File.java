@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class File {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(unique = true)
@@ -21,6 +22,7 @@ public class File {
     private long size;
 
     @Lob
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] data;
 
     public File(String id, String name, long size, byte[] data) {
