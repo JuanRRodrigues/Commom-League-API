@@ -185,6 +185,9 @@ public class TeamService {
         }
     }
 
+    public List<Team> saveAll(List<Team> teams) {
+        return Repository.saveAll(teams);
+    }
 
 
 

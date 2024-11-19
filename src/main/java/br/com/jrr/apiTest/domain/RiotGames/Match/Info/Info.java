@@ -61,6 +61,7 @@ public class Info {
     private String gameEndTimestamp;
 
 
+
     @JsonProperty("participants")
     @OneToMany(mappedBy = "info", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Participant> participants;
@@ -185,6 +186,7 @@ public class Info {
                 ", endOfGameResult='" + endOfGameResult + '\'' +
                 ", gameCreation='" + gameCreation + '\'' +
                 ", gameEndTimestamp='" + gameEndTimestamp + '\'' +
+                ", participants=" + (participants != null ? participants.size() : 0) +
 
                 '}';
     }

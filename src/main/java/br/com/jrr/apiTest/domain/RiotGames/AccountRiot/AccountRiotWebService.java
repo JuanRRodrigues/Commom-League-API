@@ -8,6 +8,7 @@ import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO.addAccountRiotDTO;
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO.AssociacaoContaDTO;
 import br.com.jrr.apiTest.domain.RiotGames.League.LeagueEntry;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Match;
+import br.com.jrr.apiTest.domain.RiotGames.Match.MatchRiotWebService;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Repository.MatchLolRiotRepository;
 import br.com.jrr.apiTest.exception.AccountAlreadyAssociatedException;
 import br.com.jrr.apiTest.exception.AccountRiotNotFoundException;
@@ -39,6 +40,9 @@ public class AccountRiotWebService {
     private UserRepository userRepository;
     @Autowired
     private MatchLolRiotRepository matchRepository;
+
+    @Autowired
+    private MatchRiotWebService matchRiotWebService;
 
     private final GetData get = new GetData();
     private final ConvertData convert = new ConvertData();
@@ -200,22 +204,28 @@ public class AccountRiotWebService {
 
             Set<Match> matchesSaved = new HashSet<>();
             for (String matchId : dataMatch) {
-                Match matchSaved = new Match();
-                matchSaved.setMatchId(matchId);
-                matchesSaved.add(matchSaved);
+                // Verifica se a partida já está associada
+                Optional<Match> existingMatch = matchRepository.findByMatchId(matchId);
+                if (existingMatch.isEmpty()) {
+                    // Se a partida não foi encontrada, cria uma nova
+                    Match matchSaved = new Match();
+                    matchSaved.setMatchId(matchId);
+                    matchesSaved.add(matchSaved);
+                }
             }
 
             AccountRiot player = new AccountRiot(dataAccountAPI, dataAccountAPI2, matchesSaved, leagueEntries);
 
-            // Associando o AccountRiot aos LeagueEntries
+// Associando o AccountRiot aos LeagueEntries
             for (LeagueEntry leagueEntry : leagueEntries) {
                 leagueEntry.setAccountRiot(player);
             }
 
-            // Associando o AccountRiot aos Matches
+// Associando o AccountRiot aos Matches
             for (Match match : matchesSaved) {
-                match.setAccountRiot(player);
+                matchRiotWebService.registerByAPI(match.getMatchId());
             }
+
 
             AccountRiot savedPlayer = Repository.save(player);
 

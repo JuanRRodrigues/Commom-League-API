@@ -2,7 +2,7 @@ package br.com.jrr.apiTest.domain.Team;
 
 
 
-import br.com.jrr.apiTest.domain.Torneio.Torneio;
+import br.com.jrr.apiTest.domain.Torneio.Championship;
 import br.com.jrr.apiTest.domain.user.Entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -49,7 +49,7 @@ public class Team {
     private User leader;
 
     @ManyToMany(mappedBy = "teams")
-    private final List<Torneio> tournaments = new ArrayList<>();
+    private final List<Championship> tournaments = new ArrayList<>();
 
     public Team(String name, String logo, String game, double saldo, int wins, int loses, boolean inGame, User leader, List<User> players) {
         this.name = name;
@@ -188,7 +188,7 @@ public class Team {
         this.leader = leader;
     }
 
-    public List<Torneio> getTournaments() {
+    public List<Championship> getTournaments() {
         return tournaments;
     }
 }

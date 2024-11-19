@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +27,7 @@ private TeamService service;
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/")
+    @GetMapping()
     public List<TeamDTO> getAccount() {
         return service.getTeams();
     }
@@ -98,6 +99,19 @@ private TeamService service;
     public TeamDTO delete(@PathVariable String id){
         Repository.deleteById(id);
         return service.getById(id);
+    }
+
+    @PostMapping("/populate")
+    public List<Team> populateTeams() {
+        List<Team> teams = Arrays.asList(
+                new Team("Red Warriors", "red-logo.png", "League of Legends", 5000.00, 15, 5, true, null, null),
+                new Team("Blue Sharks", "blue-logo.png", "Valorant", 3000.00, 10, 10, true, null, null),
+                new Team("Green Titans", "green-logo.png", "CS:GO", 4000.00, 20, 2, true, null, null),
+                new Team("Yellow Phoenix", "yellow-logo.png", "Dota 2", 2500.00, 8, 12, false, null, null),
+                new Team("Black Panthers", "black-logo.png", "League of Legends", 6000.00, 25, 0, true, null, null)
+        );
+
+        return service.saveAll(teams);
     }
 
     @PostMapping("/addPlayer")

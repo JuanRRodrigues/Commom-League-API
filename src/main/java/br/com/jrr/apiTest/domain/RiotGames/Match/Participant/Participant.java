@@ -84,6 +84,20 @@ public class Participant {
                        @JsonProperty("riotIdTagline") String riotIdTagline,
                        @JsonProperty("tripleKills") String tripleKills,
                        @JsonProperty("win") Boolean win,
+             //         "assists": 10,
+             //                      "champLevel": 17,
+                 //                  "goldEarned": 13728,,
+                //                   "item0": 1056,
+                 //                  "item1": 3157,
+                 //                  "item2": 3152,
+                 //                  "item3": 3020,
+                 //                  "item4": 3137,
+                 //                  "item5": 6653,
+                    //               "item6": 3340,
+                    //               "kills": 3,
+                     //  summoner1Id,
+                    //   summoner2Id,
+
                        @JsonProperty("teamId") String teamId,
                        @JsonProperty("info") Info info) {
         this.id = id;

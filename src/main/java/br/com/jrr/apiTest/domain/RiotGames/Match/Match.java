@@ -6,8 +6,9 @@ import br.com.jrr.apiTest.domain.RiotGames.Match.Metadado.Metadado;
 import br.com.jrr.apiTest.domain.RiotGames.Match.API.DataMatchAPI;
 
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.AccountRiot;
-import br.com.jrr.apiTest.domain.Torneio.Torneio;
+import br.com.jrr.apiTest.domain.Torneio.Championship;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -34,6 +35,7 @@ public class Match {
     @OneToOne(cascade = CascadeType.ALL)
     private Metadado metadado;
 
+    @JsonIgnore
     // Relacionamento Many-to-Many com AccountRiot
     @ManyToMany
     @JoinTable(
@@ -47,7 +49,7 @@ public class Match {
 
     @ManyToOne
     @JoinColumn(name = "tournament_id")
-    private Torneio tournament;
+    private Championship tournament;
 
     public Match(DataMatchAPI dataMatchAPI) {
         if (dataMatchAPI != null) {
@@ -99,7 +101,7 @@ public class Match {
         return metadado;
     }
 
-    public Torneio getTournament() {
+    public Championship getTournament() {
         return tournament;
     }
 
@@ -119,7 +121,7 @@ public class Match {
         this.metadado = metadado;
     }
 
-    public void setTournament(Torneio tournament) {
+    public void setTournament(Championship tournament) {
         this.tournament = tournament;
     }
 

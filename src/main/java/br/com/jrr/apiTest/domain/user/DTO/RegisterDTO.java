@@ -1,4 +1,4 @@
-package br.com.jrr.apiTest.controller;
+package br.com.jrr.apiTest.domain.user.DTO;
 
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.AccountRiot;
 import br.com.jrr.apiTest.domain.Team.Team;

@@ -1,5 +1,6 @@
 package br.com.jrr.apiTest.domain.RiotGames.Match.DTO;
 
+import br.com.jrr.apiTest.domain.RiotGames.Match.DTO.ParticipantDTO;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Info.Info;
 
 import java.util.List;
@@ -7,35 +8,27 @@ import java.util.stream.Collectors;
 
 public class InfoDTO {
 
+    private String id;
 
     private String gameId;
 
-
     private String gameMode;
-
 
     private String gameName;
 
-
     private String gameType;
-
 
     private String gameDuration;
 
-
     private String gameVersion;
 
-
     private String endOfGameResult;
-
 
     private String gameCreation;
 
     private String gameEndTimestamp;
 
-
     private List<ParticipantDTO> participants;
-
 
     public static InfoDTO fromInfo(Info info) {
         if (info == null) {
@@ -43,6 +36,10 @@ public class InfoDTO {
         }
 
         InfoDTO infoDTO = new InfoDTO();
+
+        // Adiciona o id da Info
+        infoDTO.setId(info.getId()); // Aqui você set o ID da Info na DTO
+
         infoDTO.setGameId(info.getGameId());
         infoDTO.setGameMode(info.getGameMode());
         infoDTO.setGameName(info.getGameName());
@@ -81,29 +78,40 @@ public class InfoDTO {
             System.out.println("Nenhum participante encontrado em Info.");
         }
 
-
         return infoDTO;
     }
 
     // Getters and setters
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
     public String getGameId() { return gameId; }
     public void setGameId(String gameId) { this.gameId = gameId; }
+
     public String getGameMode() { return gameMode; }
     public void setGameMode(String gameMode) { this.gameMode = gameMode; }
+
     public String getGameName() { return gameName; }
     public void setGameName(String gameName) { this.gameName = gameName; }
+
     public String getGameType() { return gameType; }
     public void setGameType(String gameType) { this.gameType = gameType; }
+
     public String getGameDuration() { return gameDuration; }
     public void setGameDuration(String gameDuration) { this.gameDuration = gameDuration; }
+
     public String getGameVersion() { return gameVersion; }
     public void setGameVersion(String gameVersion) { this.gameVersion = gameVersion; }
+
     public String getEndOfGameResult() { return endOfGameResult; }
     public void setEndOfGameResult(String endOfGameResult) { this.endOfGameResult = endOfGameResult; }
+
     public String getGameCreation() { return gameCreation; }
     public void setGameCreation(String gameCreation) { this.gameCreation = gameCreation; }
+
     public String getGameEndTimestamp() { return gameEndTimestamp; }
     public void setGameEndTimestamp(String gameEndTimestamp) { this.gameEndTimestamp = gameEndTimestamp; }
+
     public List<ParticipantDTO> getParticipants() { return participants; }
     public void setParticipants(List<ParticipantDTO> participants) { this.participants = participants; }
 }

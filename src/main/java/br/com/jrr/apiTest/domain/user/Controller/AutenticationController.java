@@ -1,5 +1,7 @@
-package br.com.jrr.apiTest.controller;
-import br.com.jrr.apiTest.domain.file.model.File;
+package br.com.jrr.apiTest.domain.user.Controller;
+import br.com.jrr.apiTest.domain.user.DTO.AuthenticationDTO;
+import br.com.jrr.apiTest.domain.user.DTO.LoginResponseDTO;
+import br.com.jrr.apiTest.domain.user.DTO.RegisterDTO;
 import br.com.jrr.apiTest.domain.file.model.FileService;
 import br.com.jrr.apiTest.domain.file.model.FileUploadRequest;
 import br.com.jrr.apiTest.domain.file.model.FileUploadResponse;

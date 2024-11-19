@@ -26,7 +26,7 @@ private MatchRiotWebService service;
         return service.getMatch();
     }
 
-    @GetMapping("/match/{puuid}")
+    @GetMapping("/by-puuid/{puuid}")
     public List<Match> getMAtchsByPuuid(@PathVariable String puuid) {
         return service.getmatchByPuuid(puuid);
     }
@@ -42,8 +42,8 @@ private MatchRiotWebService service;
 
 
     @PostMapping("/post")
-    public MatchDTO postByAPI(@RequestBody @Valid MatchRegistrationAPI data, UriComponentsBuilder uriBuilder){
-        return service.registerByAPI(data);
+    public MatchDTO postByAPI(@RequestBody @Valid String matchID, UriComponentsBuilder uriBuilder){
+        return service.registerByAPI(matchID);
     }
 
 }

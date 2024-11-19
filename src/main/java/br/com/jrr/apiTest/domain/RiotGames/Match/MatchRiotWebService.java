@@ -17,9 +17,7 @@ import br.com.jrr.apiTest.service.APIConfigService.GetData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -64,41 +62,99 @@ public class MatchRiotWebService {
     }
 
     public List<Match> getmatchByPuuid(String puuid) {
-        return Repository.findByAccountRiot_Id(puuid);
+        // Busca as partidas associadas ao puuid e carrega os participantes
+        List<Match> matches = Repository.findByAccountRiot_Id(puuid);
+
+        // Exibe as informações dos participantes
+        matches.forEach(match -> {
+            System.out.println("Match Info: " + match.getInfo());
+            if (match.getInfo() != null && match.getInfo().getParticipants() != null) {
+                match.getInfo().getParticipants().forEach(participant -> {
+                    System.out.println("Participant: " + participant);
+                });
+            }
+        });
+
+        // Retorna todas as partidas diretamente
+        return matches;
     }
 
 
-    public MatchDTO registerByAPI(MatchRegistrationAPI data) {
-        String matchId = data.matchId();
+    public MatchDTO registerByAPI(String matchID) {
 
         // Obtém os dados da API Riot
-        var json = get.obterDados("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchId + "?api_key=" + ApiKeyManager.getApiKey());
+        var json = get.obterDados("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=" + ApiKeyManager.getApiKey());
         DataMatchAPI dataMatchAPI = convert.getDate(json, DataMatchAPI.class);
 
-        // Cria a entidade Match a partir dos dados
-        var match = new Match(dataMatchAPI);
+        // Verifica se o Match já existe no banco de dados com o matchID
+        Optional<Match> existingMatch = Repository.findByMatchId(matchID);
+        if (existingMatch.isPresent()) {
+            // Se o match já existir, pode-se optar por atualizar o registro ou retornar uma resposta indicando que o match já foi registrado
+            Match match = existingMatch.get();
 
-        // Cria a entidade Info
-        Info info = new Info(dataMatchAPI);
-        infoRepository.save(info);  // Salva a Info primeiro
+            // Atualizando as informações, se necessário
+            match.setInfo(new Info(dataMatchAPI));  // Atualiza a info
 
-        // Cria uma nova lista de participantes e associa a Info
-        List<Participant> participants = new ArrayList<>(info.getParticipants());
-        participants.forEach(participant -> participant.setInfo(info));
+            // Atualiza participantes e as associações de AccountRiot
+            List<Participant> participants = new ArrayList<>(match.getInfo().getParticipants());
+            participants.forEach(participant -> participant.setInfo(match.getInfo()));
+            match.getInfo().setParticipants(participants);
 
-        // Atualiza a lista de participantes na entidade Match
-        match.getInfo().setParticipants(participants);
+            // Verifica se a conta já está associada ao Match, se não, adiciona
+            Set<AccountRiot> accounts = match.getAccountRiot();
+            AccountRiot user = repositoryAccount.findByPuuid("pRXauqTqgHKQ-XrRvKyriGk9dthO9pwItVgG4GJV80t8Atj96YACNHxu7ccT_R0ALHVT13CMoKEzGw");
 
-        AccountRiot user = repositoryAccount.findByPuuid("rzSO3JFUGQqzIZyf_r3Ig6Vx3-Ev-IT1nV92fIQyQVCQgkM6LyuqXljk6r47PuwcEj7ifijj5GNN-A");
+            if (user != null) {
+                accounts.add(user);
+            }
 
-       // match.setAccountRiot((Set<AccountRiot>) user);
+            // Atualiza a associação com AccountRiot
+            match.setAccountRiot(accounts);
 
-        // Salva a entidade Match com a associação dos participantes
-        Match savedMatch = Repository.save(match);
+            // Salva o Match atualizado
+            Match savedMatch = Repository.save(match);
 
-        // Retorna o MatchDTO com os dados do Match salvo
-        return MatchDTO.fromMatch(savedMatch);
+            // Retorna o MatchDTO com os dados do Match atualizado
+            return MatchDTO.fromMatch(savedMatch);
+
+        } else {
+            // Se o match não existir, cria e associa as entidades normalmente
+
+            // Cria a entidade Match a partir dos dados
+            Match match = new Match(dataMatchAPI);
+
+            // Cria a entidade Info e associa ao Match
+            Info info = new Info(dataMatchAPI);
+            infoRepository.save(info);  // Salva a Info primeiro
+
+            // Cria uma nova lista de participantes e associa a Info
+            List<Participant> participants = new ArrayList<>(info.getParticipants());
+            participants.forEach(participant -> participant.setInfo(info));
+
+            // Atualiza a lista de participantes na entidade Match
+            match.getInfo().setParticipants(participants);
+
+            // Criando um Set para armazenar as contas dos jogadores
+            Set<AccountRiot> accounts = new HashSet<>();
+
+            AccountRiot user = repositoryAccount.findByPuuid("pRXauqTqgHKQ-XrRvKyriGk9dthO9pwItVgG4GJV80t8Atj96YACNHxu7ccT_R0ALHVT13CMoKEzGw");
+
+            // Adicionando a conta ao Set
+            if (user != null) {
+                accounts.add(user);
+            }
+
+            // Associando o Set de AccountRiot ao Match
+            match.setAccountRiot(accounts);
+
+            // Salva a entidade Match com a associação dos participantes
+            Match savedMatch = Repository.save(match);
+
+            // Retorna o MatchDTO com os dados do Match salvo
+            return MatchDTO.fromMatch(savedMatch);
+        }
     }
+
 
 
 
