@@ -6,8 +6,10 @@ public enum NotificationType {
     FRIEND_REQUEST("Friend request"),
     CONFIRM_PARTICIPATION("Confirm participation in the tournament"),
     BALANCE_DEPOSIT("You have deposited funds into your account"),
-    BALANCE_RECEIPT("Funds received");
-
+    BALANCE_RECEIPT("Funds received"),
+    INVITE("You have been invited to join a team"),
+    LEADERSHIP_TRANSFER("Leadership has been transferred"),
+    BAN("");
     private final String description;
 
     NotificationType(String description) {

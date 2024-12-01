@@ -1,10 +1,6 @@
 package br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO;
 
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.AccountRiot;
-import br.com.jrr.apiTest.domain.RiotGames.Match.DTO.MatchDTO;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 public record AccountRiotDTO(
         String id,

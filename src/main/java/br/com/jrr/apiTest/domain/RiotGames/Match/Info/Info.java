@@ -1,5 +1,6 @@
 package br.com.jrr.apiTest.domain.RiotGames.Match.Info;
 
+import br.com.jrr.apiTest.domain.RiotGames.Match.DTO.SpectadorDTO;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Participant.Participant;
 import br.com.jrr.apiTest.domain.RiotGames.Match.API.DataMatchAPI;
 import com.fasterxml.jackson.annotation.JsonAlias;
@@ -23,49 +24,36 @@ public class Info {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-
-
     @JsonAlias("gameId")
     private String gameId;
-
 
     @JsonAlias("gameMode")
     private String gameMode;
 
-
     @JsonAlias("gameName")
     private String gameName;
-
 
     @JsonAlias("gameType")
     private String gameType;
 
-
     @JsonAlias("gameDuration")
     private String gameDuration;
-
 
     @JsonAlias("gameVersion")
     private String gameVersion;
 
-
     @JsonAlias("endOfGameResult")
     private String endOfGameResult;
-
 
     @JsonAlias("gameCreation")
     private String gameCreation;
 
-
     @JsonAlias("gameEndTimestamp")
     private String gameEndTimestamp;
-
-
 
     @JsonProperty("participants")
     @OneToMany(mappedBy = "info", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Participant> participants;
-
 
     public Info() {}
 
@@ -81,6 +69,12 @@ public class Info {
         this.gameCreation = dataMatchAPI.getInfo().getGameCreation();
         this.gameEndTimestamp = dataMatchAPI.getInfo().getGameEndTimestamp();
         this.participants = new ArrayList<>(dataMatchAPI.getInfo().getParticipants());
+    }
+
+    public Info(SpectadorDTO spectadorDTO) {
+        this.gameId = spectadorDTO.gameId();
+        this.gameMode = spectadorDTO.gameMode();
+        this.participants = new ArrayList<>(spectadorDTO.Participants());
     }
 
 

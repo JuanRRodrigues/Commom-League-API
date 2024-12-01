@@ -6,6 +6,7 @@ import br.com.jrr.apiTest.domain.RiotGames.Match.Match;
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.API.DataAccountAPI;
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO.DadosUpdateDTO;
 import br.com.jrr.apiTest.domain.user.Entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -53,16 +54,17 @@ public class AccountRiot {
     @NotNull
     private String summonerLevel;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     // Relacionamento OneToMany com LeagueEntry
-    @OneToMany(mappedBy = "accountRiot", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "accountRiot", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<LeagueEntry> leagueEntries = new ArrayList<>();
 
     // Relacionamento Many-to-Many com Match
-    @ManyToMany(mappedBy = "accountRiot")
+    @ManyToMany(mappedBy = "accountRiot", fetch = FetchType.EAGER)
     private Set<Match> matches = new HashSet<>();
 
     // Construtor que inicializa a lista de LeagueEntry e Match

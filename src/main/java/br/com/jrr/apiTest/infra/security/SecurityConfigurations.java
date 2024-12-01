@@ -54,6 +54,7 @@ public class SecurityConfigurations implements WebMvcConfigurer {
                     req.requestMatchers(HttpMethod.POST, "/api/v1/teams/list").permitAll();
                     req.requestMatchers(HttpMethod.POST, "/api/v1/matchid/post").permitAll();
                     req.requestMatchers(HttpMethod.GET, "/api/files/{id}").permitAll();
+                    req.requestMatchers(HttpMethod.GET, "/api/championships").permitAll();
                     req.requestMatchers(HttpMethod.PUT, "/api/files/{id}").permitAll();
             //        req.requestMatchers(HttpMethod.POST, "/api/v1/ApiKeyRiot/post").hasRole("ADMIN");
                     req.anyRequest().authenticated();

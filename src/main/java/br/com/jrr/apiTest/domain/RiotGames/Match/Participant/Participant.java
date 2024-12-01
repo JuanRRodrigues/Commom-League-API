@@ -84,6 +84,8 @@ public class Participant {
                        @JsonProperty("riotIdTagline") String riotIdTagline,
                        @JsonProperty("tripleKills") String tripleKills,
                        @JsonProperty("win") Boolean win,
+                       @JsonProperty("teamId") String teamId,
+                       @JsonProperty("info") Info info) {
              //         "assists": 10,
              //                      "champLevel": 17,
                  //                  "goldEarned": 13728,,
@@ -98,8 +100,7 @@ public class Participant {
                      //  summoner1Id,
                     //   summoner2Id,
 
-                       @JsonProperty("teamId") String teamId,
-                       @JsonProperty("info") Info info) {
+
         this.id = id;
         this.baronKills = baronKills;
         this.champLevel = champLevel;
@@ -122,9 +123,10 @@ public class Participant {
     public Participant() {
 
     }
+
     @Override
     public String toString() {
-        return "ParticipantsMatch{" +
+        return "Participant{" +
                 "id=" + id +
                 ", baronKills='" + baronKills + '\'' +
                 ", champLevel=" + champLevel +
@@ -141,7 +143,7 @@ public class Participant {
                 ", riotIdTagline='" + riotIdTagline + '\'' +
                 ", tripleKills='" + tripleKills + '\'' +
                 ", win=" + win +
-
+                ", teamId='" + teamId + '\'' +
                 '}';
     }
 

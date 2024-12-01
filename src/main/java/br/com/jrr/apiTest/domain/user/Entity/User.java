@@ -8,6 +8,7 @@ import br.com.jrr.apiTest.enums.LeagueRegion;
 import br.com.jrr.apiTest.enums.adress.City;
 import br.com.jrr.apiTest.enums.adress.Country;
 import br.com.jrr.apiTest.enums.adress.State;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -68,7 +69,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Language language;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id")
     private Team team;
 
@@ -76,7 +78,7 @@ public class User implements UserDetails {
     @JoinColumn(name = "account_id")
     private AccountRiot accountRiot;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     private List<Notification> notifications = new ArrayList<>();
 
 
@@ -224,7 +226,6 @@ public class User implements UserDetails {
                 ", role=" + role +
                 ", saldo=" + saldo +
                 ", birthDate=" + birthDate +
-                ", team=" + team +
                 ", accountRiot=" + accountRiot +
                 '}';
     }

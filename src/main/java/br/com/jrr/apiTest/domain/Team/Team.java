@@ -4,6 +4,7 @@ package br.com.jrr.apiTest.domain.Team;
 
 import br.com.jrr.apiTest.domain.Torneio.Championship;
 import br.com.jrr.apiTest.domain.user.Entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -33,7 +34,8 @@ public class Team {
     @NotNull
     private String game;
 
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     private List<User> players;
 
     private Double saldo;
@@ -44,11 +46,14 @@ public class Team {
 
     private boolean inGame;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "leader_id")
     private User leader;
 
-    @ManyToMany(mappedBy = "teams")
+    private boolean readyToPlay; // Campo booleano
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "teams", fetch = FetchType.EAGER)
     private final List<Championship> tournaments = new ArrayList<>();
 
     public Team(String name, String logo, String game, double saldo, int wins, int loses, boolean inGame, User leader, List<User> players) {
@@ -69,6 +74,11 @@ public class Team {
 
     public Team() {
     }
+
+    public boolean isReadyToPlay() {
+        return readyToPlay; // Getter para o campo booleano
+    }
+
 
 
     public void addPlayer(User player) {
@@ -94,12 +104,10 @@ public class Team {
     }
 
 
-
-
     @Override
     public String toString() {
         return "Team{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", logo='" + logo + '\'' +
                 ", game='" + game + '\'' +
@@ -108,9 +116,9 @@ public class Team {
                 ", wins=" + wins +
                 ", loses=" + loses +
                 ", inGame=" + inGame +
+                ", leader=" + leader +
                 '}';
     }
-
 
     public String getId() {
         return id;
@@ -160,6 +168,10 @@ public class Team {
         return wins;
     }
 
+    public void setReadyToPlay(boolean readyToPlay) {
+        this.readyToPlay = readyToPlay;
+    }
+
     public void setWins(int wins) {
         this.wins = wins;
     }
@@ -191,4 +203,6 @@ public class Team {
     public List<Championship> getTournaments() {
         return tournaments;
     }
+
+
 }

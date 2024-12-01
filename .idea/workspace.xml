@@ -5,45 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21de2451-b762-4a78-84b4-c00140de6bf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Info/InfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Info/InfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/SpectadorDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/TournamentMonitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/TournamentMonitor2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/PlayerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamMonitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamUpdateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipWithTeamsAndMatchesDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Controller/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/SearchUserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/ApiKeyRiotController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AutenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Controller/AutenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/AuthenticationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/AuthenticationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/LoginResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/LoginResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/controller/RegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/RegisterDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/InfoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/InfoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/CommomLeagueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/CommomLeagueApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Info/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Info/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Info/infoRepository/InfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Info/infoRepository/InfoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/MatchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/MatchRiotWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/MatchRiotWebService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Participant/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Participant/Participant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Repository/MatchLolRiotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/RiotGames/Match/Repository/MatchLolRiotRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/Team.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamRegistreDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamRegisterDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/Torneio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/Championship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/TorneioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/ApiKeyRiotController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/AutenticationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/AuthenticationDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/LoginResponseDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/controller/RegisterDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiotWebService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/InfoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/DTO/InfoDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/Championship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/Championship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Torneio/ChampionshipService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/LeaderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/LeaderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/DTO/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/user/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/SecurityConfigurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/infra/security/SecurityConfigurations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/CommomLeagueApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/CommomLeagueApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/Notification.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/Notification.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Notification/NotificationType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/AccountRiot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/AccountRiot/DTO/AccountRiotDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Info/Info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Info/Info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Info/infoRepository/InfoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Info/infoRepository/InfoRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Match.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Match.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/MatchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/MatchController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/MatchRiotWebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/MatchRiotWebService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Participant/Participant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Participant/Participant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Repository/MatchLolRiotRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/RiotGames/Match/Repository/MatchLolRiotRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/Team.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamRegistreDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Team/TeamService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/Championship.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/Championship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/ChampionshipController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/ChampionshipController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/ChampionshipRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/ChampionshipRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/ChampionshipService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/Torneio/ChampionshipService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/Controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/DTO/LeaderDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/DTO/LeaderDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/DTO/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/DTO/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/Entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/domain/user/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/security/SecurityConfigurations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jrr/apiTest/infra/security/SecurityConfigurations.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +165,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.com.jrr.apiTest.domain.user.Controller" />
       <recent name="br.com.jrr.apiTest.domain.Notification" />
       <recent name="br.com.jrr.apiTest.controller" />
       <recent name="br.com.jrr.apiTest.domain.Account" />
@@ -153,11 +185,11 @@
       <recent name="C:\Users\JuanR\OneDrive\Área de Trabalho\s\anime-web\src\main\resources\templates\users" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.jrr.apiTest.domain.RiotGames.Match" />
+      <recent name="br.com.jrr.apiTest.domain.RiotGames.Match.DTO" />
       <recent name="br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO" />
       <recent name="br.com.jrr.apiTest.domain.DTO" />
       <recent name="br.com.jrr.apiTest.domain.file.model" />
-      <recent name="br.com.jrr.apiTest.domain.user.DTO" />
-      <recent name="br.com.jrr.apiTest.domain.user" />
     </key>
   </component>
   <component name="RunManager" selected="Application.CommomLeagueApplication">
@@ -436,5 +468,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Team/TeamController.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/jrr/apiTest/domain/Notification/NotificationService.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

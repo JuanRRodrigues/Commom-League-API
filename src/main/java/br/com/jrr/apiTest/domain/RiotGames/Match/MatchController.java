@@ -1,11 +1,11 @@
 package br.com.jrr.apiTest.domain.RiotGames.Match;
 
-import br.com.jrr.apiTest.domain.RiotGames.Match.API.MatchRegistrationAPI;
 import br.com.jrr.apiTest.domain.RiotGames.Match.DTO.MatchDTO;
-import br.com.jrr.apiTest.domain.RiotGames.Match.Participant.Participant;
 import br.com.jrr.apiTest.domain.RiotGames.Match.Repository.MatchLolRiotRepository;
+import br.com.jrr.apiTest.domain.Torneio.ChampionshipRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -21,6 +21,9 @@ private MatchRiotWebService service;
     @Autowired
     private MatchLolRiotRepository Repository;
 
+    @Autowired
+    private ChampionshipRepository championshipRepository;
+
     @GetMapping("/list")
     public List<MatchDTO> getMatch() {
         return service.getMatch();
@@ -31,7 +34,17 @@ private MatchRiotWebService service;
         return service.getmatchByPuuid(puuid);
     }
 
+    @GetMapping("/current")
+    public ResponseEntity<String> getCurrentMatchById(
+            @RequestBody String captainIdBlue,
+             String captainRed,
+            String championshipId) {
 
+
+
+            return service.getCurrentMatchById(captainIdBlue,captainRed,championshipId);
+
+    }
 
     @GetMapping("/{matchId}")
     public Match getMatchById(@PathVariable String matchId) {

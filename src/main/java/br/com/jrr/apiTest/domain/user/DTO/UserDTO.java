@@ -1,6 +1,7 @@
 package br.com.jrr.apiTest.domain.user.DTO;
 
 import br.com.jrr.apiTest.domain.RiotGames.AccountRiot.DTO.AccountRiotDTO;
+import br.com.jrr.apiTest.domain.Team.Team;
 import br.com.jrr.apiTest.domain.user.Entity.User;
 import br.com.jrr.apiTest.domain.user.enums.UserRole;
 import br.com.jrr.apiTest.enums.Language;
@@ -15,7 +16,6 @@ public record UserDTO(
         String id,
         String login,
         String userName,
-        String password,
         String fullName,
         String cpf,
         String telefone,
@@ -34,14 +34,13 @@ public record UserDTO(
         public static UserDTO fromUser(User user) {
                 if (user == null) {
 
-                        return new UserDTO(null, null, null,  null, null, null, null, null, 00.00,  null, null, null, null,null,null, null,null);
+                        return new UserDTO(null, null, null, null, null, null, null, 00.00,  null, null, null, null,null,null, null,null);
                 }
 
                 return new UserDTO(
                         user.getId(),
                         user.getLogin(),
                         user.getUsername(),
-                        user.getPassword(),
                         user.getFullName(),
                         user.getCpf(),
                         user.getTelefone(),

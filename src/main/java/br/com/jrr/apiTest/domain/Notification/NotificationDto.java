@@ -1,18 +1,11 @@
 package br.com.jrr.apiTest.domain.Notification;
 
-import br.com.jrr.apiTest.domain.Notification.NotificationType;
-
 public class NotificationDto {
     private NotificationType type;
     private String message;
+    private String senderId; // ID opcional do remetente
+    private String teamId;   // ID opcional do time
 
-    // Constructor
-    public NotificationDto(NotificationType type, String message) {
-        this.type = type;
-        this.message = message;
-    }
-
-    // Getters and Setters
     public NotificationType getType() {
         return type;
     }
@@ -27,5 +20,21 @@ public class NotificationDto {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
     }
 }
